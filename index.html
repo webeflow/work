@@ -175,10 +175,28 @@
       background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
     }
 
-    /* ========== MOBILE LIGHTBOX TOUCH FIX ========== */
-    #lightbox button {
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
+    /* ========== LIGHTBOX CLOSE BUTTON - CENTERED ========== */
+    #lb-close-btn {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999999;
+      width: 60px;
+      height: 60px;
+      background-color: #D4AF37;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+    }
+    #lb-close-btn svg {
+      width: 28px;
+      height: 28px;
+      color: #000000;
+      stroke: #000000;
     }
   </style>
 
@@ -494,33 +512,30 @@
     </svg>
   </button>
 
+  <!-- ===================== LIGHTBOX CLOSE BUTTON - PLACED DIRECTLY IN BODY, OUTSIDE EVERYTHING ===================== -->
+  <button id="lb-close-btn" onclick="event.stopPropagation(); event.preventDefault(); closeLightbox();" aria-label="Close lightbox">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+
   <!-- ===================== LIGHTBOX MODAL ===================== -->
-  <div id="lightbox" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+  <div id="lightbox" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true" onclick="closeLightbox()">
+    <!-- Content - stopPropagation so image clicks don't close -->
+    <div style="position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 16px 100px 16px;" onclick="event.stopPropagation();">
 
-    <!-- BACKDROP: explicitly z-1, no blur to avoid stacking context trap -->
-    <div onclick="closeLightbox()" style="position:fixed;inset:0;z-index:1;background-color:var(--lightbox-bg);"></div>
-
-    <!-- CLOSE BUTTON: fixed position, extreme z-index, inline cursor to guarantee it works -->
-    <button onclick="closeLightbox()" style="position:fixed;top:16px;right:16px;z-index:9999;cursor:pointer;pointer-events:auto;width:48px;height:48px;background-color:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);" aria-label="Close lightbox">
-      <svg style="width:24px;height:24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-      </svg>
-    </button>
-
-    <!-- CONTENT AREA: z-10 -->
-    <div style="position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 64px 96px 64px;">
       <!-- Image wrapper -->
       <div style="position:relative;max-width:1024px;width:100%;flex:1;display:flex;align-items:center;justify-content:center;">
 
-        <button id="lb-prev" onclick="lightboxPrev()" style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:48px;height:48px;background-color:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);cursor:pointer;pointer-events:auto;z-index:20;" aria-label="Previous image">
+        <button id="lb-prev" onclick="event.stopPropagation(); lightboxPrev();" style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:48px;height:48px;background-color:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);cursor:pointer;pointer-events:auto;z-index:20;" aria-label="Previous image">
           <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
           </svg>
         </button>
 
-        <img id="lb-image" src="" alt="" style="max-height:65vh;max-width:100%;object-fit:contain;box-shadow:0 4px 40px var(--shadow-color);">
+        <img id="lb-image" src="" alt="" style="max-height:65vh;max-width:100%;object-fit:contain;box-shadow:0 4px 40px var(--shadow-color);" onclick="event.stopPropagation();">
 
-        <button id="lb-next" onclick="lightboxNext()" style="position:absolute;right:0;top:50%;transform:translateY(-50%);width:48px;height:48px;background-color:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);cursor:pointer;pointer-events:auto;z-index:20;" aria-label="Next image">
+        <button id="lb-next" onclick="event.stopPropagation(); lightboxNext();" style="position:absolute;right:0;top:50%;transform:translateY(-50%);width:48px;height:48px;background-color:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);cursor:pointer;pointer-events:auto;z-index:20;" aria-label="Next image">
           <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
           </svg>
@@ -529,7 +544,7 @@
       </div>
 
       <!-- Counter & Title -->
-      <div style="margin-top:16px;text-align:center;flex-shrink:0;">
+      <div style="margin-top:16px;text-align:center;flex-shrink:0;" onclick="event.stopPropagation();">
         <p id="lb-counter" style="font-family:Montserrat,sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);"></p>
         <p id="lb-title" style="font-family:Cormorant Garamond,serif;font-size:18px;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-primary);margin-top:4px;"></p>
       </div>
@@ -871,11 +886,13 @@
 
       updateLightbox();
       document.getElementById('lightbox').classList.remove('hidden');
+      document.getElementById('lb-close-btn').style.display = 'flex';
       document.body.classList.add('lightbox-open');
     }
 
     function closeLightbox() {
       document.getElementById('lightbox').classList.add('hidden');
+      document.getElementById('lb-close-btn').style.display = 'none';
       document.body.classList.remove('lightbox-open');
       lbGalleryImages = [];
     }
