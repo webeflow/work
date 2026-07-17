@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Noor Photographer Studio & Color Lab — Mall of Lahore</title>
+  <meta name="description" content="Al Noor Photographer Studio & Color Lab offers premium photography services at Mall of Lahore. Wedding, portrait, event, and commercial photography.">
+
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Cormorant Garamond', 'serif'],
+            body: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ========== THEME VARIABLES ========== */
+    :root {
+      --bg-primary: #FAF9F6;
+      --bg-secondary: #F0EDE8;
+      --bg-tertiary: #E8E4DE;
+      --text-primary: #1C1C1C;
+      --text-secondary: #4A4A4A;
+      --text-muted: #9A9A9A;
+      --accent: #D4AF37;
+      --accent-hover: #C5A02E;
+      --accent-light: rgba(212, 175, 55, 0.12);
+      --border: rgba(28, 28, 28, 0.1);
+      --card-bg: #FFFFFF;
+      --overlay-bg: rgba(250, 249, 246, 0.96);
+      --header-bg: rgba(250, 249, 246, 0.82);
+      --shadow-color: rgba(0, 0, 0, 0.06);
+      --gold-glow: rgba(212, 175, 55, 0.4);
+      --lightbox-bg: rgba(250, 249, 246, 0.98);
+      --hero-overlay: linear-gradient(180deg, rgba(28,28,28,0.55) 0%, rgba(28,28,28,0.35) 50%, rgba(28,28,28,0.7) 100%);
+    }
+
+    body.dark-theme {
+      --bg-primary: #0A0A0A;
+      --bg-secondary: #111111;
+      --bg-tertiary: #1A1A1A;
+      --text-primary: #FAFAFA;
+      --text-secondary: #C8C8C8;
+      --text-muted: #666666;
+      --accent: #D4AF37;
+      --accent-hover: #E5C04A;
+      --accent-light: rgba(212, 175, 55, 0.08);
+      --border: rgba(255, 255, 255, 0.07);
+      --card-bg: #141414;
+      --overlay-bg: rgba(10, 10, 10, 0.96);
+      --header-bg: rgba(10, 10, 10, 0.82);
+      --shadow-color: rgba(0, 0, 0, 0.4);
+      --gold-glow: rgba(212, 175, 55, 0.55);
+      --lightbox-bg: rgba(10, 10, 10, 0.98);
+      --hero-overlay: linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.35) 50%, rgba(10,10,10,0.75) 100%);
+    }
+
+    /* ========== THEME UTILITY CLASSES ========== */
+    .th-bg { background-color: var(--bg-primary); }
+    .th-bg-sec { background-color: var(--bg-secondary); }
+    .th-bg-ter { background-color: var(--bg-tertiary); }
+    .th-text { color: var(--text-primary); }
+    .th-text-sec { color: var(--text-secondary); }
+    .th-text-muted { color: var(--text-muted); }
+    .th-accent { color: var(--accent); }
+    .th-bg-accent { background-color: var(--accent); }
+    .th-bg-accent-light { background-color: var(--accent-light); }
+    .th-border { border-color: var(--border); }
+    .th-card { background-color: var(--card-bg); }
+    .th-overlay { background-color: var(--overlay-bg); }
+    .th-header { background-color: var(--header-bg); }
+    .th-lightbox { background-color: var(--lightbox-bg); }
+    .th-shadow { box-shadow: 0 4px 40px var(--shadow-color); }
+    .th-gold-glow { box-shadow: 0 0 24px var(--gold-glow); }
+    .th-border-b { border-bottom: 1px solid var(--border); }
+    .th-border-t { border-top: 1px solid var(--border); }
+    .th-hero-overlay { background: var(--hero-overlay); }
+
+    /* ========== BASE TRANSITIONS ========== */
+    body,
+    .th-bg,
+    .th-bg-sec,
+    .th-bg-ter,
+    .th-card,
+    .th-header,
+    .th-overlay,
+    .th-lightbox,
+    .th-text,
+    .th-text-sec {
+      transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    /* ========== GOLD PULSE ANIMATION ========== */
+    @keyframes goldPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.55); }
+      50% { box-shadow: 0 0 22px 8px rgba(212, 175, 55, 0.25); }
+    }
+    .whatsapp-pulse {
+      animation: goldPulse 2.2s ease-in-out infinite;
+    }
+
+    /* ========== FADE IN ANIMATION ========== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+
+    /* ========== TESTIMONIAL FADE ========== */
+    .testimonial-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.7s ease-in-out;
+      pointer-events: none;
+    }
+    .testimonial-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ========== LIGHTBOX ========== */
+    .lightbox-open {
+      overflow: hidden;
+    }
+
+    /* ========== SCROLLBAR ========== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 0; }
+
+    /* ========== REDUCED MOTION ========== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ========== MOBILE MENU ========== */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* ========== IMAGE PLACEHOLDER ========== */
+    .img-placeholder {
+      background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+    }
+  </style>
+
+  <!-- Netlify Identity Redirect Script -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</head>
+
+<body class="font-body th-bg th-text antialiased overflow-x-hidden">
+
+  <!-- ===================== HEADER ===================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 th-header backdrop-blur-md th-border-b transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex flex-col leading-none" onclick="scrollToSection('hero'); return false;">
+          <span id="header-logo" class="font-heading text-2xl md:text-3xl font-semibold tracking-widest th-accent uppercase">Al Noor</span>
+          <span id="header-subtitle" class="font-body text-[9px] md:text-[10px] tracking-[0.25em] th-text-muted uppercase mt-0.5">Photographer Studio & Color Lab</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-10">
+          <a href="#" onclick="scrollToSection('hero'); return false;" class="text-xs font-medium tracking-widest uppercase th-text-sec hover:th-accent transition-colors duration-300">Home</a>
+          <a href="#" onclick="scrollToSection('founder'); return false;" class="text-xs font-medium tracking-widest uppercase th-text-sec hover:th-accent transition-colors duration-300">About</a>
+          <a href="#" onclick="scrollToSection('services'); return false;" class="text-xs font-medium tracking-widest uppercase th-text-sec hover:th-accent transition-colors duration-300">Services</a>
+          <a href="#" onclick="scrollToSection('portfolio'); return false;" class="text-xs font-medium tracking-widest uppercase th-text-sec hover:th-accent transition-colors duration-300">Portfolio</a>
+          <a href="#" onclick="scrollToSection('testimonials'); return false;" class="text-xs font-medium tracking-widest uppercase th-text-sec hover:th-accent transition-colors duration-300">Reviews</a>
+          <a href="#" onclick="scrollToSection('contact'); return false;" class="text-xs font-medium tracking-widest uppercase th-text-sec hover:th-accent transition-colors duration-300">Contact</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="menu-toggle" class="lg:hidden th-text p-2 -mr-2 transition-colors duration-300" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"/>
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 top-20 z-50 th-overlay backdrop-blur-lg lg:hidden">
+      <nav class="flex flex-col items-center justify-center h-full gap-8">
+        <a href="#" onclick="scrollToSection('hero'); closeMobileMenu(); return false;" class="font-heading text-3xl font-light tracking-widest uppercase th-text hover:th-accent transition-colors duration-300">Home</a>
+        <a href="#" onclick="scrollToSection('founder'); closeMobileMenu(); return false;" class="font-heading text-3xl font-light tracking-widest uppercase th-text hover:th-accent transition-colors duration-300">About</a>
+        <a href="#" onclick="scrollToSection('services'); closeMobileMenu(); return false;" class="font-heading text-3xl font-light tracking-widest uppercase th-text hover:th-accent transition-colors duration-300">Services</a>
+        <a href="#" onclick="scrollToSection('portfolio'); closeMobileMenu(); return false;" class="font-heading text-3xl font-light tracking-widest uppercase th-text hover:th-accent transition-colors duration-300">Portfolio</a>
+        <a href="#" onclick="scrollToSection('testimonials'); closeMobileMenu(); return false;" class="font-heading text-3xl font-light tracking-widest uppercase th-text hover:th-accent transition-colors duration-300">Reviews</a>
+        <a href="#" onclick="scrollToSection('contact'); closeMobileMenu(); return false;" class="font-heading text-3xl font-light tracking-widest uppercase th-text hover:th-accent transition-colors duration-300">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Pattern (decorative when no hero image) -->
+    <div class="absolute inset-0 img-placeholder"></div>
+    <div class="absolute inset-0" style="background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.5;"></div>
+    <div class="absolute inset-0 th-hero-overlay"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div class="animate-fade-in-up" style="opacity:0;">
+        <p id="hero-pre-title" class="font-body text-xs tracking-[0.35em] uppercase th-accent mb-6 font-medium">Mall of Lahore</p>
+      </div>
+      <h1 id="hero-title" class="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-wider uppercase leading-[0.95] text-white animate-fade-in-up delay-100" style="opacity:0;">
+        Capturing<br>Timeless Moments
+      </h1>
+      <div class="animate-fade-in-up delay-200" style="opacity:0;">
+        <div class="w-16 h-px th-bg-accent mx-auto my-8"></div>
+      </div>
+      <p id="hero-subtitle" class="font-body text-sm md:text-base tracking-widest uppercase text-white/70 font-light animate-fade-in-up delay-300" style="opacity:0;">
+        Premium Photography Services
+      </p>
+      <div class="animate-fade-in-up delay-400" style="opacity:0;">
+        <a href="#" onclick="scrollToSection('portfolio'); return false;" id="hero-cta" class="inline-block mt-10 px-10 py-4 th-bg-accent text-black text-xs font-semibold tracking-widest uppercase rounded-none hover:bg-[var(--accent-hover)] transition-all duration-300">
+          Explore Our Work
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===================== FOUNDER BIO ===================== -->
+  <section id="founder" class="py-28 md:py-36 th-bg">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <!-- Image -->
+        <div id="founder-image-wrapper" class="relative">
+          <div class="aspect-[3/4] img-placeholder rounded-none overflow-hidden">
+            <img id="founder-image" src="" alt="Founder" class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105 hidden">
+          </div>
+          <div class="absolute -bottom-4 -right-4 w-full h-full border th-border rounded-none -z-10"></div>
+        </div>
+
+        <!-- Text -->
+        <div>
+          <p class="font-body text-xs tracking-[0.35em] uppercase th-accent mb-4 font-medium">The Visionary</p>
+          <h2 id="founder-name" class="font-heading text-4xl md:text-5xl font-light tracking-wider uppercase th-text mb-2">Our Founder</h2>
+          <p id="founder-title" class="font-body text-xs tracking-widest uppercase th-text-muted mb-8 font-medium"></p>
+          <div class="w-12 h-px th-bg-accent mb-8"></div>
+          <p id="founder-bio" class="font-body text-sm leading-7 th-text-sec font-light">
+            The story of Al Noor Photographer Studio & Color Lab begins with a passion for preserving life's most precious moments. Established at the prestigious Mall of Lahore, our studio has been a beacon of photographic excellence, blending traditional artistry with modern innovation to create images that transcend time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section id="services" class="py-28 md:py-36 th-bg-sec">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <!-- Section Header -->
+      <div class="text-center mb-20">
+        <p class="font-body text-xs tracking-[0.35em] uppercase th-accent mb-4 font-medium">What We Offer</p>
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-light tracking-wider uppercase th-text">Our Services</h2>
+        <div class="w-12 h-px th-bg-accent mx-auto mt-8"></div>
+      </div>
+
+      <!-- Services Grid -->
+      <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Dynamically populated -->
+      </div>
+
+      <!-- Placeholder State -->
+      <div id="services-placeholder" class="hidden text-center py-20">
+        <svg class="w-12 h-12 th-text-muted mx-auto mb-6 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/>
+        </svg>
+        <p class="font-heading text-2xl tracking-wider uppercase th-text-muted font-light">Services Are Being Curated</p>
+        <p class="font-body text-xs tracking-widest uppercase th-text-muted mt-3 opacity-60">Please check back soon</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PORTFOLIO / GALLERIES ===================== -->
+  <section id="portfolio" class="py-28 md:py-36 th-bg">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <!-- Section Header -->
+      <div class="text-center mb-20">
+        <p class="font-body text-xs tracking-[0.35em] uppercase th-accent mb-4 font-medium">Our Craft</p>
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-light tracking-wider uppercase th-text">Portfolio</h2>
+        <div class="w-12 h-px th-bg-accent mx-auto mt-8"></div>
+      </div>
+
+      <!-- Galleries Grid -->
+      <div id="galleries-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Dynamically populated -->
+      </div>
+
+      <!-- Placeholder State -->
+      <div id="galleries-placeholder" class="hidden text-center py-20">
+        <svg class="w-12 h-12 th-text-muted mx-auto mb-6 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/>
+        </svg>
+        <p class="font-heading text-2xl tracking-wider uppercase th-text-muted font-light">Portfolio Is Being Updated</p>
+        <p class="font-body text-xs tracking-widest uppercase th-text-muted mt-3 opacity-60">Stay tuned for stunning visuals</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section id="testimonials" class="py-28 md:py-36 th-bg-sec">
+    <div class="max-w-4xl mx-auto px-6 lg:px-10">
+      <!-- Section Header -->
+      <div class="text-center mb-20">
+        <p class="font-body text-xs tracking-[0.35em] uppercase th-accent mb-4 font-medium">Client Words</p>
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-light tracking-wider uppercase th-text">Testimonials</h2>
+        <div class="w-12 h-px th-bg-accent mx-auto mt-8"></div>
+      </div>
+
+      <!-- Slider Container -->
+      <div id="testimonials-container" class="relative min-h-[280px]">
+        <!-- Dynamically populated slides -->
+      </div>
+
+      <!-- Dots -->
+      <div id="testimonials-dots" class="flex items-center justify-center gap-3 mt-12">
+        <!-- Dynamically populated -->
+      </div>
+
+      <!-- Placeholder State -->
+      <div id="testimonials-placeholder" class="hidden text-center py-20">
+        <svg class="w-12 h-12 th-text-muted mx-auto mb-6 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
+        </svg>
+        <p class="font-heading text-2xl tracking-wider uppercase th-text-muted font-light">Testimonials Coming Soon</p>
+        <p class="font-body text-xs tracking-widest uppercase th-text-muted mt-3 opacity-60">Client reviews will appear here</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="py-28 md:py-36 th-bg">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+      <!-- Section Header -->
+      <div class="text-center mb-20">
+        <p class="font-body text-xs tracking-[0.35em] uppercase th-accent mb-4 font-medium">Get In Touch</p>
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-light tracking-wider uppercase th-text">Contact Us</h2>
+        <div class="w-12 h-px th-bg-accent mx-auto mt-8"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+        <!-- Address -->
+        <div class="text-center lg:text-left">
+          <div class="w-10 h-10 th-bg-accent-light rounded-none flex items-center justify-center mx-auto lg:mx-0 mb-5">
+            <svg class="w-5 h-5 th-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-lg tracking-widest uppercase th-text font-medium mb-3">Visit Our Studio</h3>
+          <p id="contact-address" class="font-body text-sm th-text-sec font-light leading-7">Shop# 18B, Mall of Lahore, Tufail Road, Lahore Cantt, Pakistan</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Al+Noor+Photographer+Studio+%26+Color+Lab" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-5 text-xs tracking-widest uppercase th-accent font-medium hover:underline transition-all duration-300">
+            <span>Open in Maps</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Phones -->
+        <div class="text-center">
+          <div class="w-10 h-10 th-bg-accent-light rounded-none flex items-center justify-center mx-auto mb-5">
+            <svg class="w-5 h-5 th-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-lg tracking-widest uppercase th-text font-medium mb-3">Call Us</h3>
+          <div class="flex flex-col items-center gap-2">
+            <a href="tel:+923214250911" class="font-body text-sm th-text-sec font-light hover:th-accent transition-colors duration-300">+92 321 4250911</a>
+            <a href="tel:+923214917028" class="font-body text-sm th-text-sec font-light hover:th-accent transition-colors duration-300">+92 321 4917028</a>
+          </div>
+        </div>
+
+        <!-- Email & Social -->
+        <div class="text-center lg:text-right">
+          <div class="w-10 h-10 th-bg-accent-light rounded-none flex items-center justify-center mx-auto lg:ml-auto lg:mr-0 mb-5">
+            <svg class="w-5 h-5 th-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-lg tracking-widest uppercase th-text font-medium mb-3">Email & Social</h3>
+          <a href="mailto:alnoorphotographers@gmail.com" class="font-body text-sm th-text-sec font-light hover:th-accent transition-colors duration-300 block mb-5">alnoorphotographers@gmail.com</a>
+          <div class="flex items-center justify-center lg:justify-end gap-4">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/profile.php?id=100064331273895" target="_blank" rel="noopener noreferrer" class="w-9 h-9 th-border rounded-none flex items-center justify-center th-text-muted hover:th-accent hover:border-[var(--accent)] transition-all duration-300" aria-label="Facebook">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/alnoorphotographersofficial/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 th-border rounded-none flex items-center justify-center th-text-muted hover:th-accent hover:border-[var(--accent)] transition-all duration-300" aria-label="Instagram">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@alnooorphotophers" target="_blank" rel="noopener noreferrer" class="w-9 h-9 th-border rounded-none flex items-center justify-center th-text-muted hover:th-accent hover:border-[var(--accent)] transition-all duration-300" aria-label="TikTok">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="py-12 th-bg-ter th-border-t">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex flex-col items-center md:items-start">
+          <span class="font-heading text-lg tracking-widest uppercase th-accent font-medium">Al Noor</span>
+          <span class="font-body text-[9px] tracking-[0.2em] uppercase th-text-muted mt-0.5">Photographer Studio & Color Lab</span>
+        </div>
+        <p class="font-body text-[10px] tracking-widest uppercase th-text-muted">
+          Developed by <a href="#" class="th-accent hover:underline transition-all duration-300">Webeflow</a>
+        </p>
+        <p class="font-body text-[10px] tracking-widest uppercase th-text-muted">
+          &copy; <span id="footer-year"></span> All Rights Reserved
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== WHATSAPP BUTTON ===================== -->
+  <a href="https://wa.me/923344978000?text=Hello%20Al%20Noor%20Studio!%20I%20would%20like%20to%20book%20a%20photography%20session." target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-40 w-14 h-14 th-bg-accent rounded-none flex items-center justify-center whatsapp-pulse hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
+    <svg class="w-7 h-7 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ===================== THEME TOGGLE ===================== -->
+  <button id="theme-toggle" onclick="toggleTheme()" class="fixed bottom-8 left-8 z-40 w-12 h-12 th-card th-border rounded-none flex items-center justify-center th-text-muted hover:th-accent hover:border-[var(--accent)] th-shadow transition-all duration-300" aria-label="Toggle theme">
+    <!-- Sun Icon (shown in dark mode) -->
+    <svg id="theme-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
+    </svg>
+    <!-- Moon Icon (shown in light mode) -->
+    <svg id="theme-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
+    </svg>
+  </button>
+
+  <!-- ===================== LIGHTBOX MODAL ===================== -->
+  <div id="lightbox" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 th-lightbox backdrop-blur-sm" onclick="closeLightbox()"></div>
+    <!-- Content -->
+    <div class="relative z-10 flex flex-col items-center justify-center h-full p-4 md:p-10">
+      <!-- Close -->
+      <button onclick="closeLightbox()" class="absolute top-6 right-6 w-10 h-10 th-card th-border rounded-none flex items-center justify-center th-text hover:th-accent transition-all duration-300" aria-label="Close lightbox">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Image -->
+      <div class="relative max-w-5xl w-full flex-1 flex items-center justify-center">
+        <button id="lb-prev" onclick="lightboxPrev()" class="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 w-12 h-12 th-card th-border rounded-none flex items-center justify-center th-text hover:th-accent hover:border-[var(--accent)] transition-all duration-300" aria-label="Previous image">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+          </svg>
+        </button>
+
+        <img id="lb-image" src="" alt="" class="max-h-[75vh] max-w-full object-contain rounded-none th-shadow">
+
+        <button id="lb-next" onclick="lightboxNext()" class="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 w-12 h-12 th-card th-border rounded-none flex items-center justify-center th-text hover:th-accent hover:border-[var(--accent)] transition-all duration-300" aria-label="Next image">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Counter & Title -->
+      <div class="mt-6 text-center">
+        <p id="lb-counter" class="font-body text-xs tracking-widest uppercase th-text-muted"></p>
+        <p id="lb-title" class="font-heading text-lg tracking-wider uppercase th-text mt-1"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== JAVASCRIPT ===================== -->
+  <script>
+    // ========== STATE ==========
+    let generalData = null;
+    let servicesData = null;
+    let galleriesData = null;
+    let testimonialsData = null;
+
+    // Lightbox state
+    let lbGalleryImages = [];
+    let lbCurrentIndex = 0;
+    let lbGalleryTitle = '';
+
+    // Testimonial slider state
+    let testimonialIndex = 0;
+    let testimonialTimer = null;
+
+    // ========== THEME ==========
+    function initTheme() {
+      const saved = localStorage.getItem('alnoor-theme');
+      if (saved === 'dark') {
+        document.body.classList.add('dark-theme');
+        document.getElementById('theme-sun').classList.remove('hidden');
+        document.getElementById('theme-moon').classList.add('hidden');
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+      const isDark = document.body.classList.contains('dark-theme');
+      localStorage.setItem('alnoor-theme', isDark ? 'dark' : 'light');
+      document.getElementById('theme-sun').classList.toggle('hidden', !isDark);
+      document.getElementById('theme-moon').classList.toggle('hidden', isDark);
+    }
+
+    // ========== MOBILE MENU ==========
+    let mobileMenuOpen = false;
+
+    function toggleMobileMenu() {
+      mobileMenuOpen = !mobileMenuOpen;
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      if (mobileMenuOpen) {
+        menu.classList.add('open');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      } else {
+        closeMobileMenu();
+      }
+    }
+
+    function closeMobileMenu() {
+      mobileMenuOpen = false;
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      menu.classList.remove('open');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // ========== SMOOTH SCROLL ==========
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        const offset = 80;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    }
+
+    // ========== HEADER SCROLL EFFECT ==========
+    function handleHeaderScroll() {
+      const header = document.getElementById('site-header');
+      if (window.scrollY > 50) {
+        header.classList.add('th-shadow');
+      } else {
+        header.classList.remove('th-shadow');
+      }
+    }
+
+    // ========== SAFE FETCH ==========
+    async function safeFetch(url) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const data = await response.json();
+        return data;
+      } catch (err) {
+        console.warn('[Al Noor] Failed to fetch ' + url + ':', err.message);
+        return null;
+      }
+    }
+
+    // ========== RENDER STARS ==========
+    function renderStars(rating) {
+      const r = parseInt(rating) || 5;
+      let html = '<div class="flex items-center gap-1 justify-center">';
+      for (let i = 1; i <= 5; i++) {
+        const color = i <= r ? 'text-[#D4AF37]' : 'th-text-muted opacity-30';
+        html += '<svg class="w-4 h-4 ' + color + '" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
+      }
+      html += '</div>';
+      return html;
+    }
+
+    // ========== RENDER GENERAL ==========
+    function renderGeneral() {
+      if (!generalData) return;
+
+      const d = generalData;
+
+      // Header
+      if (d.logo_text) {
+        document.getElementById('header-logo').textContent = d.logo_text;
+      }
+      if (d.logo_subtitle) {
+        document.getElementById('header-subtitle').textContent = d.logo_subtitle;
+      }
+
+      // Hero
+      if (d.hero_title) {
+        document.getElementById('hero-title').innerHTML = d.hero_title.replace(/\n/g, '<br>');
+      }
+      if (d.hero_subtitle) {
+        document.getElementById('hero-subtitle').textContent = d.hero_subtitle;
+      }
+      if (d.hero_cta_text) {
+        document.getElementById('hero-cta').textContent = d.hero_cta_text;
+      }
+
+      // Founder
+      if (d.founder_name) {
+        document.getElementById('founder-name').textContent = d.founder_name;
+      }
+      if (d.founder_title) {
+        document.getElementById('founder-title').textContent = d.founder_title;
+      }
+      if (d.founder_bio) {
+        document.getElementById('founder-bio').textContent = d.founder_bio;
+      }
+      if (d.founder_image) {
+        const img = document.getElementById('founder-image');
+        img.src = d.founder_image;
+        img.alt = d.founder_name || 'Founder';
+        img.classList.remove('hidden');
+      }
+
+      // Contact
+      if (d.address) {
+        document.getElementById('contact-address').textContent = d.address;
+      }
+
+      // Update page title
+      if (d.logo_text) {
+        document.title = d.logo_text + ' — Photographer Studio & Color Lab';
+      }
+    }
+
+    // ========== RENDER SERVICES ==========
+    function renderServices() {
+      const grid = document.getElementById('services-grid');
+      const placeholder = document.getElementById('services-placeholder');
+      const items = servicesData?.services;
+
+      if (!items || !Array.isArray(items) || items.length === 0) {
+        grid.classList.add('hidden');
+        placeholder.classList.remove('hidden');
+        return;
+      }
+
+      placeholder.classList.add('hidden');
+      grid.classList.remove('hidden');
+
+      grid.innerHTML = items.map(function(s, i) {
+        const hasImage = s.cover_image && s.cover_image.trim() !== '';
+        const imageBlock = hasImage
+          ? '<div class="aspect-[4/3] overflow-hidden rounded-none"><img src="' + s.cover_image + '" alt="' + (s.title || 'Service') + '" class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105" loading="lazy"></div>'
+          : '<div class="aspect-[4/3] img-placeholder rounded-none flex items-center justify-center"><svg class="w-10 h-10 th-text-muted opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg></div>';
+
+        return '<div class="th-card rounded-none overflow-hidden th-border th-shadow group" style="animation: fadeInUp 0.6s ease-out ' + (i * 0.1) + 's forwards; opacity: 0;">' +
+          imageBlock +
+          '<div class="p-8">' +
+            '<h3 class="font-heading text-xl tracking-widest uppercase th-text font-medium mb-3">' + (s.title || 'Service') + '</h3>' +
+            '<div class="w-8 h-px th-bg-accent mb-4"></div>' +
+            '<p class="font-body text-sm th-text-sec font-light leading-7">' + (s.description || '') + '</p>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // ========== RENDER GALLERIES ==========
+    function renderGalleries() {
+      const grid = document.getElementById('galleries-grid');
+      const placeholder = document.getElementById('galleries-placeholder');
+      const items = galleriesData?.galleries;
+
+      if (!items || !Array.isArray(items) || items.length === 0) {
+        grid.classList.add('hidden');
+        placeholder.classList.remove('hidden');
+        return;
+      }
+
+      placeholder.classList.add('hidden');
+      grid.classList.remove('hidden');
+
+      grid.innerHTML = items.map(function(g, i) {
+        const hasCover = g.cover_image && g.cover_image.trim() !== '';
+        const hasImages = g.images && Array.isArray(g.images) && g.images.length > 0;
+        const imageCount = hasImages ? g.images.length : 0;
+
+        const coverBlock = hasCover
+          ? '<img src="' + g.cover_image + '" alt="' + (g.title || 'Gallery') + '" class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105" loading="lazy">'
+          : '<div class="w-full h-full img-placeholder flex items-center justify-center"><svg class="w-12 h-12 th-text-muted opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg></div>';
+
+        const clickable = hasImages ? 'cursor-pointer' : 'cursor-default';
+        const clickHandler = hasImages ? 'onclick="openLightbox(' + i + ')"' : '';
+        const badge = hasImages ? '<span class="absolute bottom-4 left-4 px-3 py-1.5 th-bg-accent text-black text-[10px] tracking-widest uppercase font-semibold rounded-none">' + imageCount + ' Photos</span>' : '';
+
+        return '<div class="th-card rounded-none overflow-hidden th-border th-shadow group ' + clickable + '" ' + clickHandler + ' style="animation: fadeInUp 0.6s ease-out ' + (i * 0.1) + 's forwards; opacity: 0;">' +
+          '<div class="relative aspect-[4/3] overflow-hidden rounded-none">' +
+            coverBlock +
+            badge +
+          '</div>' +
+          '<div class="p-8">' +
+            '<h3 class="font-heading text-xl tracking-widest uppercase th-text font-medium">' + (g.title || 'Gallery') + '</h3>' +
+            '<div class="w-8 h-px th-bg-accent mt-4"></div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // ========== RENDER TESTIMONIALS ==========
+    function renderTestimonials() {
+      const container = document.getElementById('testimonials-container');
+      const dotsContainer = document.getElementById('testimonials-dots');
+      const placeholder = document.getElementById('testimonials-placeholder');
+      const items = testimonialsData?.testimonials;
+
+      if (!items || !Array.isArray(items) || items.length === 0) {
+        container.classList.add('hidden');
+        dotsContainer.classList.add('hidden');
+        placeholder.classList.remove('hidden');
+        return;
+      }
+
+      placeholder.classList.add('hidden');
+      container.classList.remove('hidden');
+      dotsContainer.classList.remove('hidden');
+
+      // Build slides
+      container.innerHTML = items.map(function(t, i) {
+        const hasAvatar = t.avatar && t.avatar.trim() !== '';
+        const avatarBlock = hasAvatar
+          ? '<img src="' + t.avatar + '" alt="' + (t.name || 'Client') + '" class="w-16 h-16 object-cover rounded-none th-border">'
+          : '<div class="w-16 h-16 th-bg-accent-light rounded-none flex items-center justify-center"><span class="font-heading text-2xl th-accent font-medium">' + (t.name ? t.name.charAt(0).toUpperCase() : '?') + '</span></div>';
+
+        return '<div class="testimonial-slide ' + (i === 0 ? 'active' : '') + '" data-index="' + i + '">' +
+          '<div class="text-center px-4">' +
+            '<div class="flex justify-center mb-6">' + avatarBlock + '</div>' +
+            '<div class="mb-5">' + renderStars(t.rating) + '</div>' +
+            '<p class="font-body text-base md:text-lg th-text-sec font-light leading-8 italic max-w-2xl mx-auto">"' + (t.feedback || '') + '"</p>' +
+            '<div class="mt-8"><p class="font-heading text-lg tracking-widest uppercase th-text font-medium">' + (t.name || 'Anonymous') + '</p></div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      // Build dots
+      dotsContainer.innerHTML = items.map(function(t, i) {
+        return '<button onclick="goToTestimonial(' + i + ')" class="w-2.5 h-2.5 rounded-none transition-all duration-300 ' + (i === 0 ? 'th-bg-accent' : 'th-bg th-border') + '" aria-label="Go to testimonial ' + (i + 1) + '"></button>';
+      }).join('');
+
+      // Start auto-slide
+      testimonialIndex = 0;
+      startTestimonialTimer();
+    }
+
+    function goToTestimonial(index) {
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const dots = document.querySelectorAll('#testimonials-dots button');
+      if (slides.length === 0) return;
+
+      slides.forEach(function(s) { s.classList.remove('active'); });
+      dots.forEach(function(d) {
+        d.classList.remove('th-bg-accent');
+        d.classList.add('th-bg', 'th-border');
+      });
+
+      testimonialIndex = index;
+      if (testimonialIndex >= slides.length) testimonialIndex = 0;
+      if (testimonialIndex < 0) testimonialIndex = slides.length - 1;
+
+      slides[testimonialIndex].classList.add('active');
+      if (dots[testimonialIndex]) {
+        dots[testimonialIndex].classList.add('th-bg-accent');
+        dots[testimonialIndex].classList.remove('th-bg', 'th-border');
+      }
+
+      resetTestimonialTimer();
+    }
+
+    function startTestimonialTimer() {
+      testimonialTimer = setInterval(function() {
+        goToTestimonial(testimonialIndex + 1);
+      }, 5000);
+    }
+
+    function resetTestimonialTimer() {
+      if (testimonialTimer) clearInterval(testimonialTimer);
+      startTestimonialTimer();
+    }
+
+    // ========== LIGHTBOX ==========
+    function openLightbox(galleryIndex) {
+      const galleries = galleriesData?.galleries;
+      if (!galleries || !galleries[galleryIndex]) return;
+
+      const gallery = galleries[galleryIndex];
+      const images = gallery.images;
+      if (!images || !Array.isArray(images) || images.length === 0) return;
+
+      lbGalleryImages = images.map(function(img) {
+        return {
+          src: img.image || '',
+          alt: img.alt_text || gallery.title || 'Image'
+        };
+      });
+      lbGalleryTitle = gallery.title || 'Gallery';
+      lbCurrentIndex = 0;
+
+      updateLightbox();
+      document.getElementById('lightbox').classList.remove('hidden');
+      document.body.classList.add('lightbox-open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.body.classList.remove('lightbox-open');
+      lbGalleryImages = [];
+    }
+
+    function lightboxPrev() {
+      if (lbGalleryImages.length === 0) return;
+      lbCurrentIndex--;
+      if (lbCurrentIndex < 0) lbCurrentIndex = lbGalleryImages.length - 1;
+      updateLightbox();
+    }
+
+    function lightboxNext() {
+      if (lbGalleryImages.length === 0) return;
+      lbCurrentIndex++;
+      if (lbCurrentIndex >= lbGalleryImages.length) lbCurrentIndex = 0;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const img = document.getElementById('lb-image');
+      const counter = document.getElementById('lb-counter');
+      const title = document.getElementById('lb-title');
+      const prevBtn = document.getElementById('lb-prev');
+      const nextBtn = document.getElementById('lb-next');
+
+      if (lbGalleryImages.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = '';
+        nextBtn.style.display = '';
+      }
+
+      const current = lbGalleryImages[lbCurrentIndex];
+      if (current) {
+        img.src = current.src;
+        img.alt = current.alt;
+      }
+      counter.textContent = (lbCurrentIndex + 1) + ' / ' + lbGalleryImages.length;
+      title.textContent = lbGalleryTitle;
+    }
+
+    // Keyboard navigation for lightbox
+    document.addEventListener('keydown', function(e) {
+      const lightbox = document.getElementById('lightbox');
+      if (lightbox.classList.contains('hidden')) return;
+
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lightboxPrev();
+      if (e.key === 'ArrowRight') lightboxNext();
+    });
+
+    // ========== FOOTER YEAR ==========
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ========== SCROLL LISTENER ==========
+    window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+
+    // ========== INTERSECTION OBSERVER FOR ANIMATIONS ==========
+    function initScrollAnimations() {
+      const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe section headers and cards after render
+      document.querySelectorAll('#founder, #services, #portfolio, #testimonials, #contact').forEach(function(section) {
+        const headers = section.querySelectorAll('h2, .text-center > p, .text-center > div');
+        headers.forEach(function(el) {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(20px)';
+          el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
+          observer.observe(el);
+        });
+      });
+    }
+
+    // ========== INIT ==========
+    async function init() {
+      initTheme();
+
+      // Fetch all data in parallel
+      const results = await Promise.all([
+        safeFetch('data/general.json'),
+        safeFetch('data/services.json'),
+        safeFetch('data/galleries.json'),
+        safeFetch('data/testimonials.json')
+      ]);
+
+      generalData = results[0];
+      servicesData = results[1];
+      galleriesData = results[2];
+      testimonialsData = results[3];
+
+      // Render all sections
+      renderGeneral();
+      renderServices();
+      renderGalleries();
+      renderTestimonials();
+
+      // Init animations after content is in DOM
+      requestAnimationFrame(function() {
+        initScrollAnimations();
+      });
+    }
+
+    init();
+  </script>
+
+</body>
+</html>
