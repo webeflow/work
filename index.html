@@ -174,30 +174,6 @@
     .img-placeholder {
       background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
     }
-
-    /* ========== LIGHTBOX CLOSE BUTTON - CENTERED ========== */
-    #lb-close-btn {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 999999;
-      width: 60px;
-      height: 60px;
-      background-color: #D4AF37;
-      border: none;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      pointer-events: auto;
-    }
-    #lb-close-btn svg {
-      width: 28px;
-      height: 28px;
-      color: #000000;
-      stroke: #000000;
-    }
   </style>
 
   <!-- Netlify Identity Redirect Script -->
@@ -262,11 +238,11 @@
   </header>
 
   <!-- ===================== HERO ===================== -->
-  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Background Pattern (decorative when no hero image) -->
-    <div class="absolute inset-0 img-placeholder"></div>
-    <div class="absolute inset-0" style="background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.5;"></div>
-    <div class="absolute inset-0 th-hero-overlay"></div>
+ <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Pattern (decorative when no hero image) -->
+  <div class="absolute inset-0" style="background-image: url('https://i.pinimg.com/1200x/01/df/58/01df582ed5622f123d6f2dfb38b36cf5.jpg'); background-size: cover; background-position: center;"></div>
+  <div class="absolute inset-0" style="background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.5;"></div>
+  <div class="absolute inset-0 th-hero-overlay"></div>
 
     <!-- Content -->
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
@@ -512,41 +488,40 @@
     </svg>
   </button>
 
-  <!-- ===================== LIGHTBOX CLOSE BUTTON - PLACED DIRECTLY IN BODY, OUTSIDE EVERYTHING ===================== -->
-  <button id="lb-close-btn" onclick="event.stopPropagation(); event.preventDefault(); closeLightbox();" aria-label="Close lightbox">
-    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-    </svg>
-  </button>
-
   <!-- ===================== LIGHTBOX MODAL ===================== -->
-  <div id="lightbox" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true" onclick="closeLightbox()">
-    <!-- Content - stopPropagation so image clicks don't close -->
-    <div style="position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 16px 100px 16px;" onclick="event.stopPropagation();">
+  <div id="lightbox" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 th-lightbox backdrop-blur-sm" onclick="closeLightbox()"></div>
+    <!-- Content -->
+    <div class="relative z-10 flex flex-col items-center justify-center h-full p-4 md:p-10">
+      <!-- Close Button (Repaired to Top Center) -->
+      <button onclick="closeLightbox()" class="absolute top-6 left-1/2 -translate-x-1/2 w-10 h-10 th-card th-border rounded-none flex items-center justify-center th-text hover:th-accent transition-all duration-300" style="z-index: 99999 !important; pointer-events: auto !important; cursor: pointer !important;" aria-label="Close lightbox">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
 
-      <!-- Image wrapper -->
-      <div style="position:relative;max-width:1024px;width:100%;flex:1;display:flex;align-items:center;justify-content:center;">
-
-        <button id="lb-prev" onclick="event.stopPropagation(); lightboxPrev();" style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:48px;height:48px;background-color:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);cursor:pointer;pointer-events:auto;z-index:20;" aria-label="Previous image">
-          <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+      <!-- Image -->
+      <div class="relative max-w-5xl w-full flex-1 flex items-center justify-center">
+        <button id="lb-prev" onclick="lightboxPrev()" class="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 w-12 h-12 th-card th-border rounded-none flex items-center justify-center th-text hover:th-accent hover:border-[var(--accent)] transition-all duration-300" aria-label="Previous image">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
           </svg>
         </button>
 
-        <img id="lb-image" src="" alt="" style="max-height:65vh;max-width:100%;object-fit:contain;box-shadow:0 4px 40px var(--shadow-color);" onclick="event.stopPropagation();">
+        <img id="lb-image" src="" alt="" class="max-h-[75vh] max-w-full object-contain rounded-none th-shadow">
 
-        <button id="lb-next" onclick="event.stopPropagation(); lightboxNext();" style="position:absolute;right:0;top:50%;transform:translateY(-50%);width:48px;height:48px;background-color:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);cursor:pointer;pointer-events:auto;z-index:20;" aria-label="Next image">
-          <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+        <button id="lb-next" onclick="lightboxNext()" class="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 w-12 h-12 th-card th-border rounded-none flex items-center justify-center th-text hover:th-accent hover:border-[var(--accent)] transition-all duration-300" aria-label="Next image">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
           </svg>
         </button>
-
       </div>
 
       <!-- Counter & Title -->
-      <div style="margin-top:16px;text-align:center;flex-shrink:0;" onclick="event.stopPropagation();">
-        <p id="lb-counter" style="font-family:Montserrat,sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);"></p>
-        <p id="lb-title" style="font-family:Cormorant Garamond,serif;font-size:18px;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-primary);margin-top:4px;"></p>
+      <div class="mt-6 text-center">
+        <p id="lb-counter" class="font-body text-xs tracking-widest uppercase th-text-muted"></p>
+        <p id="lb-title" class="font-heading text-lg tracking-wider uppercase th-text mt-1"></p>
       </div>
     </div>
   </div>
@@ -886,13 +861,11 @@
 
       updateLightbox();
       document.getElementById('lightbox').classList.remove('hidden');
-      document.getElementById('lb-close-btn').style.display = 'flex';
       document.body.classList.add('lightbox-open');
     }
 
     function closeLightbox() {
       document.getElementById('lightbox').classList.add('hidden');
-      document.getElementById('lb-close-btn').style.display = 'none';
       document.body.classList.remove('lightbox-open');
       lbGalleryImages = [];
     }
@@ -922,8 +895,8 @@
         prevBtn.style.display = 'none';
         nextBtn.style.display = 'none';
       } else {
-        prevBtn.style.display = 'flex';
-        nextBtn.style.display = 'flex';
+        prevBtn.style.display = '';
+        nextBtn.style.display = '';
       }
 
       const current = lbGalleryImages[lbCurrentIndex];
