@@ -174,6 +174,12 @@
     .img-placeholder {
       background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
     }
+
+    /* ========== MOBILE LIGHTBOX TOUCH FIX ========== */
+    #lightbox button {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
   </style>
 
   <!-- Netlify Identity Redirect Script -->
@@ -238,11 +244,11 @@
   </header>
 
   <!-- ===================== HERO ===================== -->
- <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background Pattern (decorative when no hero image) -->
-  <div class="absolute inset-0" style="background-image: url('https://i.pinimg.com/1200x/01/df/58/01df582ed5622f123d6f2dfb38b36cf5.jpg'); background-size: cover; background-position: center;"></div>
-  <div class="absolute inset-0" style="background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.5;"></div>
-  <div class="absolute inset-0 th-hero-overlay"></div>
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Pattern (decorative when no hero image) -->
+    <div class="absolute inset-0 img-placeholder"></div>
+    <div class="absolute inset-0" style="background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.5;"></div>
+    <div class="absolute inset-0 th-hero-overlay"></div>
 
     <!-- Content -->
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
@@ -490,39 +496,42 @@
 
   <!-- ===================== LIGHTBOX MODAL ===================== -->
   <div id="lightbox" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
-    <!-- Backdrop -->
-    <div class="absolute inset-0 th-lightbox backdrop-blur-sm" onclick="closeLightbox()"></div>
-    
-    <!-- Close Button (Direct Fixed Child to bypass any flex container overlap bugs) -->
-    <button onclick="closeLightbox()" class="fixed top-6 right-6 w-10 h-10 th-card th-border rounded-none flex items-center justify-center th-text hover:th-accent transition-all duration-300 z-[150]" style="cursor: pointer !important; pointer-events: auto !important;" aria-label="Close lightbox">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+
+    <!-- BACKDROP: explicitly z-1, no blur to avoid stacking context trap -->
+    <div onclick="closeLightbox()" style="position:fixed;inset:0;z-index:1;background-color:var(--lightbox-bg);"></div>
+
+    <!-- CLOSE BUTTON: fixed position, extreme z-index, inline cursor to guarantee it works -->
+    <button onclick="closeLightbox()" style="position:fixed;top:16px;right:16px;z-index:9999;cursor:pointer;pointer-events:auto;width:48px;height:48px;background-color:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);" aria-label="Close lightbox">
+      <svg style="width:24px;height:24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
       </svg>
     </button>
 
-    <!-- Content -->
-    <div class="relative z-10 flex flex-col items-center justify-center h-full p-4 md:p-10">
-      <!-- Image -->
-      <div class="relative max-w-5xl w-full flex-1 flex items-center justify-center">
-        <button id="lb-prev" onclick="lightboxPrev()" class="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 w-12 h-12 th-card th-border rounded-none flex items-center justify-center th-text hover:th-accent hover:border-[var(--accent)] transition-all duration-300" aria-label="Previous image">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+    <!-- CONTENT AREA: z-10 -->
+    <div style="position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 64px 96px 64px;">
+      <!-- Image wrapper -->
+      <div style="position:relative;max-width:1024px;width:100%;flex:1;display:flex;align-items:center;justify-content:center;">
+
+        <button id="lb-prev" onclick="lightboxPrev()" style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:48px;height:48px;background-color:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);cursor:pointer;pointer-events:auto;z-index:20;" aria-label="Previous image">
+          <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
           </svg>
         </button>
 
-        <img id="lb-image" src="" alt="" class="max-h-[75vh] max-w-full object-contain rounded-none th-shadow">
+        <img id="lb-image" src="" alt="" style="max-height:65vh;max-width:100%;object-fit:contain;box-shadow:0 4px 40px var(--shadow-color);">
 
-        <button id="lb-next" onclick="lightboxNext()" class="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 w-12 h-12 th-card th-border rounded-none flex items-center justify-center th-text hover:th-accent hover:border-[var(--accent)] transition-all duration-300" aria-label="Next image">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+        <button id="lb-next" onclick="lightboxNext()" style="position:absolute;right:0;top:50%;transform:translateY(-50%);width:48px;height:48px;background-color:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);cursor:pointer;pointer-events:auto;z-index:20;" aria-label="Next image">
+          <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
           </svg>
         </button>
+
       </div>
 
       <!-- Counter & Title -->
-      <div class="mt-6 text-center">
-        <p id="lb-counter" class="font-body text-xs tracking-widest uppercase th-text-muted"></p>
-        <p id="lb-title" class="font-heading text-lg tracking-wider uppercase th-text mt-1"></p>
+      <div style="margin-top:16px;text-align:center;flex-shrink:0;">
+        <p id="lb-counter" style="font-family:Montserrat,sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);"></p>
+        <p id="lb-title" style="font-family:Cormorant Garamond,serif;font-size:18px;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-primary);margin-top:4px;"></p>
       </div>
     </div>
   </div>
@@ -896,8 +905,8 @@
         prevBtn.style.display = 'none';
         nextBtn.style.display = 'none';
       } else {
-        prevBtn.style.display = '';
-        nextBtn.style.display = '';
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
       }
 
       const current = lbGalleryImages[lbCurrentIndex];
