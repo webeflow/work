@@ -4,303 +4,205 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Al Noor Photographer Studio & Color Lab — Mall of Lahore</title>
-  <meta name="description" content="Al Noor Photographer Studio & Color Lab offers premium photography services at Mall of Lahore. Wedding, portrait, event, and commercial photography.">
+  <meta name="description" content="Al Noor Photographer Studio & Color Lab offers premium photography services at Mall of Lahore.">
 
-  <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            heading: ['Cormorant Garamond', 'serif'],
-            body: ['Montserrat', 'sans-serif'],
+            heading: ['Playfair Display', 'serif'],
+            body: ['Outfit', 'sans-serif'],
           }
         }
       }
     }
   </script>
-
   <style>
     :root {
-      --bg-primary: #FAF9F6;
-      --bg-secondary: #F0EDE8;
-      --bg-tertiary: #E8E4DE;
-      --text-primary: #1C1C1C;
-      --text-secondary: #4A4A4A;
-      --text-muted: #9A9A9A;
-      --accent: #D4AF37;
-      --accent-hover: #C5A02E;
-      --accent-light: rgba(212, 175, 55, 0.12);
-      --border: rgba(28, 28, 28, 0.1);
-      --card-bg: #FFFFFF;
-      --overlay-bg: rgba(250, 249, 246, 0.96);
-      --header-bg: rgba(250, 249, 246, 0.82);
-      --shadow-color: rgba(0, 0, 0, 0.06);
-      --gold-glow: rgba(212, 175, 55, 0.4);
-      --lightbox-bg: rgba(250, 249, 246, 0.98);
-      --hero-overlay: linear-gradient(180deg, rgba(28,28,28,0.55) 0%, rgba(28,28,28,0.35) 50%, rgba(28,28,28,0.7) 100%);
+      --bg: #FAFAF8;
+      --bg-card: #FFFFFF;
+      --bg-glass: rgba(255,255,255,0.7);
+      --text: #1A1A1A;
+      --text-sec: #555555;
+      --text-muted: #999999;
+      --gold: #C9A84C;
+      --gold-light: #E8D48B;
+      --gold-dark: #A68A2E;
+      --gold-glow: rgba(201,168,76,0.35);
+      --border: rgba(0,0,0,0.06);
+      --shadow: 0 8px 40px rgba(0,0,0,0.06);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.1);
+      --header-bg: rgba(250,250,248,0.85);
+      --lightbox-bg: rgba(250,250,248,0.97);
     }
-
     body.dark-theme {
-      --bg-primary: #0A0A0A;
-      --bg-secondary: #111111;
-      --bg-tertiary: #1A1A1A;
-      --text-primary: #FAFAFA;
-      --text-secondary: #C8C8C8;
-      --text-muted: #666666;
-      --accent: #D4AF37;
-      --accent-hover: #E5C04A;
-      --accent-light: rgba(212, 175, 55, 0.08);
-      --border: rgba(255, 255, 255, 0.07);
-      --card-bg: #141414;
-      --overlay-bg: rgba(10, 10, 10, 0.96);
-      --header-bg: rgba(10, 10, 10, 0.82);
-      --shadow-color: rgba(0, 0, 0, 0.4);
-      --gold-glow: rgba(212, 175, 55, 0.55);
-      --lightbox-bg: rgba(10, 10, 10, 0.98);
-      --hero-overlay: linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.35) 50%, rgba(10,10,10,0.75) 100%);
+      --bg: #0C0C0C;
+      --bg-card: #161616;
+      --bg-glass: rgba(22,22,22,0.75);
+      --text: #F5F5F5;
+      --text-sec: #B0B0B0;
+      --text-muted: #5A5A5A;
+      --gold: #D4AF37;
+      --gold-light: #E8C84A;
+      --gold-dark: #B8960F;
+      --gold-glow: rgba(212,175,55,0.4);
+      --border: rgba(255,255,255,0.06);
+      --shadow: 0 8px 40px rgba(0,0,0,0.3);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+      --header-bg: rgba(12,12,12,0.85);
+      --lightbox-bg: rgba(12,12,12,0.97);
     }
+    * { box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); transition: background 0.6s, color 0.6s; }
+    .t-bg { background: var(--bg); transition: background 0.6s; }
+    .t-card { background: var(--bg-card); transition: background 0.6s, box-shadow 0.6s; box-shadow: var(--shadow); }
+    .t-glass { background: var(--bg-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: background 0.6s; }
+    .t-text { color: var(--text); transition: color 0.6s; }
+    .t-text-sec { color: var(--text-sec); transition: color 0.6s; }
+    .t-muted { color: var(--text-muted); transition: color 0.6s; }
+    .t-gold { color: var(--gold); transition: color 0.6s; }
+    .t-gold-bg { background: var(--gold); transition: background 0.6s; }
+    .t-gold-bg-light { background: var(--gold-glow); transition: background 0.6s; }
+    .t-border { border-color: var(--border); transition: border-color 0.6s; }
+    .t-header { background: var(--header-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); transition: background 0.6s; }
+    .t-lightbox { background: var(--lightbox-bg); transition: background 0.6s; }
 
-    .th-bg { background-color: var(--bg-primary); }
-    .th-bg-sec { background-color: var(--bg-secondary); }
-    .th-bg-ter { background-color: var(--bg-tertiary); }
-    .th-text { color: var(--text-primary); }
-    .th-text-sec { color: var(--text-secondary); }
-    .th-text-muted { color: var(--text-muted); }
-    .th-accent { color: var(--accent); }
-    .th-bg-accent { background-color: var(--accent); }
-    .th-bg-accent-light { background-color: var(--accent-light); }
-    .th-border { border-color: var(--border); }
-    .th-card { background-color: var(--card-bg); }
-    .th-overlay { background-color: var(--overlay-bg); }
-    .th-header { background-color: var(--header-bg); }
-    .th-lightbox { background-color: var(--lightbox-bg); }
-    .th-shadow { box-shadow: 0 4px 40px var(--shadow-color); }
-    .th-gold-glow { box-shadow: 0 0 24px var(--gold-glow); }
-    .th-border-b { border-bottom: 1px solid var(--border); }
-    .th-border-t { border-top: 1px solid var(--border); }
-    .th-hero-overlay { background: var(--hero-overlay); }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes goldPulse { 0%,100%{ box-shadow:0 0 0 0 var(--gold-glow); } 50%{ box-shadow:0 0 20px 8px var(--gold-glow); } }
+    @keyframes float { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+    .anim-up { opacity:0; transform:translateY(40px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    .anim-up.visible { opacity:1; transform:translateY(0); }
+    .wa-pulse { animation: goldPulse 2s ease-in-out infinite; }
 
-    body,
-    .th-bg,
-    .th-bg-sec,
-    .th-bg-ter,
-    .th-card,
-    .th-header,
-    .th-overlay,
-    .th-lightbox,
-    .th-text,
-    .th-text-sec {
-      transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
-    }
+    .mobile-menu { transform:translateX(100%); transition:transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .mobile-menu.open { transform:translateX(0); }
 
-    @keyframes goldPulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.55); }
-      50% { box-shadow: 0 0 22px 8px rgba(212, 175, 55, 0.25); }
-    }
-    .whatsapp-pulse {
-      animation: goldPulse 2.2s ease-in-out infinite;
-    }
+    .slide { position:absolute; inset:0; opacity:0; transition:opacity 0.8s ease; pointer-events:none; }
+    .slide.active { opacity:1; pointer-events:auto; }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-    .delay-100 { animation-delay: 0.1s; }
-    .delay-200 { animation-delay: 0.2s; }
-    .delay-300 { animation-delay: 0.3s; }
-    .delay-400 { animation-delay: 0.4s; }
-    .delay-500 { animation-delay: 0.5s; }
+    .lightbox-open { overflow:hidden; }
 
-    .testimonial-slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.7s ease-in-out;
-      pointer-events: none;
+    /* CLOSE BUTTON — lives in body, nothing can block it */
+    #lb-close {
+      position:fixed;
+      top:50%; left:50%;
+      margin-top:-32px; margin-left:-32px;
+      width:64px; height:64px;
+      border-radius:50%;
+      background:var(--gold);
+      border:none;
+      cursor:pointer;
+      z-index:9999999;
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; visibility:hidden; pointer-events:none;
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.3s;
+      box-shadow: 0 4px 30px var(--gold-glow);
     }
-    .testimonial-slide.active {
-      opacity: 1;
-      pointer-events: auto;
+    #lb-close.show {
+      opacity:1; visibility:visible; pointer-events:auto;
     }
+    #lb-close:hover {
+      transform: scale(1.1);
+      background: var(--gold-dark);
+    }
+    #lb-close:active { transform: scale(0.95); }
 
-    .lightbox-open {
-      overflow: hidden;
-    }
+    ::-webkit-scrollbar { width:6px; }
+    ::-webkit-scrollbar-track { background:var(--bg); }
+    ::-webkit-scrollbar-thumb { background:var(--gold); border-radius:10px; }
 
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg-primary); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 0; }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
-    .mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .mobile-menu.open {
-      transform: translateX(0);
-    }
-
-    .img-placeholder {
-      background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
-    }
-
-    /* ===== LIGHTBOX CLOSE BUTTON — CENTER OF SCREEN ===== */
-    #lb-close-btn {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      margin-top: -35px;
-      margin-left: -35px;
-      width: 70px;
-      height: 70px;
-      background: #D4AF37;
-      border: none;
-      cursor: pointer;
-      z-index: 9999999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 0.3s, visibility 0.3s;
-    }
-    #lb-close-btn.show {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-    #lb-close-btn:hover {
-      background: #C5A02E;
+    @media (prefers-reduced-motion:reduce) {
+      *, *::before, *::after { animation-duration:0.01ms!important; transition-duration:0.01ms!important; }
     }
   </style>
-
   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function(user) {
-        if (!user) {
-          window.netlifyIdentity.on("login", function() {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
+    if(window.netlifyIdentity){window.netlifyIdentity.on("init",function(u){if(!u){window.netlifyIdentity.on("login",function(){document.location.href="/admin/";});}});}
   </script>
 </head>
+<body class="font-body antialiased overflow-x-hidden">
 
-<body class="font-body th-bg th-text antialiased overflow-x-hidden">
-
-  <!-- ===================== HEADER ===================== -->
-  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 th-header backdrop-blur-md th-border-b transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+  <!-- ========== HEADER ========== -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 t-header border-b t-border transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <a href="#" class="flex flex-col leading-none" onclick="scrollToSection('hero'); return false;">
-          <span id="header-logo" class="font-heading text-2xl md:text-3xl font-semibold tracking-widest th-accent uppercase">Al Noor</span>
-          <span id="header-subtitle" class="font-body text-[9px] md:text-[10px] tracking-[0.25em] th-text-muted uppercase mt-0.5">Photographer Studio & Color Lab</span>
+        <a href="#" onclick="scrollTo('hero');return false;" class="flex flex-col leading-tight">
+          <span id="h-logo" class="font-heading text-2xl md:text-3xl font-semibold t-gold tracking-wide">Al Noor</span>
+          <span id="h-sub" class="font-body text-[9px] tracking-[0.3em] uppercase t-muted mt-0.5">Photographer Studio & Color Lab</span>
         </a>
-
-        <nav class="hidden lg:flex items-center gap-10">
-          <a href="#" onclick="scrollToSection('hero'); return false;" class="text-xs font-medium tracking-widest uppercase th-text-sec hover:th-accent transition-colors duration-300">Home</a>
-          <a href="#" onclick="scrollToSection('founder'); return false;" class="text-xs font-medium tracking-widest uppercase th-text-sec hover:th-accent transition-colors duration-300">About</a>
-          <a href="#" onclick="scrollToSection('services'); return false;" class="text-xs font-medium tracking-widest uppercase th-text-sec hover:th-accent transition-colors duration-300">Services</a>
-          <a href="#" onclick="scrollToSection('portfolio'); return false;" class="text-xs font-medium tracking-widest uppercase th-text-sec hover:th-accent transition-colors duration-300">Portfolio</a>
-          <a href="#" onclick="scrollToSection('testimonials'); return false;" class="text-xs font-medium tracking-widest uppercase th-text-sec hover:th-accent transition-colors duration-300">Reviews</a>
-          <a href="#" onclick="scrollToSection('contact'); return false;" class="text-xs font-medium tracking-widest uppercase th-text-sec hover:th-accent transition-colors duration-300">Contact</a>
+        <nav class="hidden lg:flex items-center gap-9">
+          <a href="#" onclick="scrollTo('hero');return false;" class="text-[13px] font-medium tracking-wide t-text-sec hover:t-gold transition-colors duration-300">Home</a>
+          <a href="#" onclick="scrollTo('founder');return false;" class="text-[13px] font-medium tracking-wide t-text-sec hover:t-gold transition-colors duration-300">About</a>
+          <a href="#" onclick="scrollTo('services');return false;" class="text-[13px] font-medium tracking-wide t-text-sec hover:t-gold transition-colors duration-300">Services</a>
+          <a href="#" onclick="scrollTo('portfolio');return false;" class="text-[13px] font-medium tracking-wide t-text-sec hover:t-gold transition-colors duration-300">Portfolio</a>
+          <a href="#" onclick="scrollTo('testimonials');return false;" class="text-[13px] font-medium tracking-wide t-text-sec hover:t-gold transition-colors duration-300">Reviews</a>
+          <a href="#" onclick="scrollTo('contact');return false;" class="text-[13px] font-medium tracking-wide t-text-sec hover:t-gold transition-colors duration-300">Contact</a>
         </nav>
-
-        <button id="menu-toggle" class="lg:hidden th-text p-2 -mr-2 transition-colors duration-300" aria-label="Toggle menu" onclick="toggleMobileMenu()">
-          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"/>
-          </svg>
-          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
+        <button id="menu-btn" class="lg:hidden t-text p-2" onclick="toggleMenu()" aria-label="Menu">
+          <svg id="ico-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="ico-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
     </div>
-
-    <div id="mobile-menu" class="mobile-menu fixed inset-0 top-20 z-50 th-overlay backdrop-blur-lg lg:hidden">
-      <nav class="flex flex-col items-center justify-center h-full gap-8">
-        <a href="#" onclick="scrollToSection('hero'); closeMobileMenu(); return false;" class="font-heading text-3xl font-light tracking-widest uppercase th-text hover:th-accent transition-colors duration-300">Home</a>
-        <a href="#" onclick="scrollToSection('founder'); closeMobileMenu(); return false;" class="font-heading text-3xl font-light tracking-widest uppercase th-text hover:th-accent transition-colors duration-300">About</a>
-        <a href="#" onclick="scrollToSection('services'); closeMobileMenu(); return false;" class="font-heading text-3xl font-light tracking-widest uppercase th-text hover:th-accent transition-colors duration-300">Services</a>
-        <a href="#" onclick="scrollToSection('portfolio'); closeMobileMenu(); return false;" class="font-heading text-3xl font-light tracking-widest uppercase th-text hover:th-accent transition-colors duration-300">Portfolio</a>
-        <a href="#" onclick="scrollToSection('testimonials'); closeMobileMenu(); return false;" class="font-heading text-3xl font-light tracking-widest uppercase th-text hover:th-accent transition-colors duration-300">Reviews</a>
-        <a href="#" onclick="scrollToSection('contact'); closeMobileMenu(); return false;" class="font-heading text-3xl font-light tracking-widest uppercase th-text hover:th-accent transition-colors duration-300">Contact</a>
+    <div id="mob-menu" class="mobile-menu fixed inset-0 top-20 z-50 t-glass lg:hidden">
+      <nav class="flex flex-col items-center justify-center h-full gap-7">
+        <a href="#" onclick="scrollTo('hero');closeMenu();return false;" class="font-heading text-3xl font-light t-text hover:t-gold transition-colors">Home</a>
+        <a href="#" onclick="scrollTo('founder');closeMenu();return false;" class="font-heading text-3xl font-light t-text hover:t-gold transition-colors">About</a>
+        <a href="#" onclick="scrollTo('services');closeMenu();return false;" class="font-heading text-3xl font-light t-text hover:t-gold transition-colors">Services</a>
+        <a href="#" onclick="scrollTo('portfolio');closeMenu();return false;" class="font-heading text-3xl font-light t-text hover:t-gold transition-colors">Portfolio</a>
+        <a href="#" onclick="scrollTo('testimonials');closeMenu();return false;" class="font-heading text-3xl font-light t-text hover:t-gold transition-colors">Reviews</a>
+        <a href="#" onclick="scrollTo('contact');closeMenu();return false;" class="font-heading text-3xl font-light t-text hover:t-gold transition-colors">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- ===================== HERO ===================== -->
+  <!-- ========== HERO ========== -->
   <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 img-placeholder"></div>
-    <div class="absolute inset-0" style="background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.5;"></div>
-    <div class="absolute inset-0 th-hero-overlay"></div>
-
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, var(--bg) 0%, var(--gold-glow) 50%, var(--bg) 100%); opacity:0.5;"></div>
+    <div class="absolute inset-0" style="background-image:radial-gradient(var(--border) 1px,transparent 1px);background-size:32px 32px;"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(180deg,transparent 0%,var(--bg) 100%);"></div>
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="animate-fade-in-up" style="opacity:0;">
-        <p id="hero-pre-title" class="font-body text-xs tracking-[0.35em] uppercase th-accent mb-6 font-medium">Mall of Lahore</p>
-      </div>
-      <h1 id="hero-title" class="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-wider uppercase leading-[0.95] text-white animate-fade-in-up delay-100" style="opacity:0;">
-        Capturing<br>Timeless Moments
-      </h1>
-      <div class="animate-fade-in-up delay-200" style="opacity:0;">
-        <div class="w-16 h-px th-bg-accent mx-auto my-8"></div>
-      </div>
-      <p id="hero-subtitle" class="font-body text-sm md:text-base tracking-widest uppercase text-white/70 font-light animate-fade-in-up delay-300" style="opacity:0;">
-        Premium Photography Services
-      </p>
-      <div class="animate-fade-in-up delay-400" style="opacity:0;">
-        <a href="#" onclick="scrollToSection('portfolio'); return false;" id="hero-cta" class="inline-block mt-10 px-10 py-4 th-bg-accent text-black text-xs font-semibold tracking-widest uppercase rounded-none hover:bg-[var(--accent-hover)] transition-all duration-300">
-          Explore Our Work
+      <p class="text-xs tracking-[0.4em] uppercase t-gold font-medium mb-6" style="animation:fadeIn 1s 0.2s both;">Mall of Lahore</p>
+      <h1 id="hero-title" class="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-medium leading-[1.05] tracking-wide mb-8" style="animation:fadeUp 1s 0.4s both;">Capturing<br><em class="font-normal t-gold">Timeless</em> Moments</h1>
+      <div class="w-16 h-0.5 t-gold-bg mx-auto mb-8" style="animation:fadeIn 1s 0.7s both;"></div>
+      <p id="hero-sub" class="text-sm md:text-base tracking-[0.15em] uppercase t-text-sec font-light mb-10" style="animation:fadeUp 1s 0.8s both;">Premium Photography Services</p>
+      <div style="animation:fadeUp 1s 1s both;">
+        <a href="#" onclick="scrollTo('portfolio');return false;" id="hero-cta" class="inline-flex items-center gap-3 px-8 py-3.5 t-gold-bg text-black text-xs font-semibold tracking-[0.15em] uppercase rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105">
+          <span>Explore Our Work</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </div>
     </div>
-
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-      <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
-      </svg>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2" style="animation:float 3s ease-in-out infinite;">
+      <svg class="w-5 h-5 t-muted" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
     </div>
   </section>
 
-  <!-- ===================== FOUNDER BIO ===================== -->
-  <section id="founder" class="py-28 md:py-36 th-bg">
-    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+  <!-- ========== FOUNDER ========== -->
+  <section id="founder" class="py-28 md:py-36 t-bg">
+    <div class="max-w-6xl mx-auto px-5 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        <div id="founder-image-wrapper" class="relative">
-          <div class="aspect-[3/4] img-placeholder rounded-none overflow-hidden">
-            <img id="founder-image" src="" alt="Founder" class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105 hidden">
+        <div class="relative group">
+          <div class="aspect-[3/4] rounded-3xl overflow-hidden t-card p-1">
+            <div class="w-full h-full rounded-[20px] overflow-hidden" style="background:linear-gradient(135deg,var(--gold-glow),var(--bg));">
+              <img id="founder-img" src="" alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 hidden">
+            </div>
           </div>
-          <div class="absolute -bottom-4 -right-4 w-full h-full border th-border rounded-none -z-10"></div>
+          <div class="absolute -bottom-5 -right-5 w-24 h-24 t-gold-bg rounded-2xl opacity-20"></div>
+          <div class="absolute -top-5 -left-5 w-16 h-16 border-2 t-border rounded-2xl"></div>
         </div>
-
         <div>
-          <p class="font-body text-xs tracking-[0.35em] uppercase th-accent mb-4 font-medium">The Visionary</p>
-          <h2 id="founder-name" class="font-heading text-4xl md:text-5xl font-light tracking-wider uppercase th-text mb-2">Our Founder</h2>
-          <p id="founder-title" class="font-body text-xs tracking-widest uppercase th-text-muted mb-8 font-medium"></p>
-          <div class="w-12 h-px th-bg-accent mb-8"></div>
-          <p id="founder-bio" class="font-body text-sm leading-7 th-text-sec font-light">
+          <p class="text-xs tracking-[0.3em] uppercase t-gold font-medium mb-4 anim-up">The Visionary</p>
+          <h2 id="founder-name" class="font-heading text-4xl md:text-5xl font-medium tracking-wide t-text mb-2 anim-up">Our Founder</h2>
+          <p id="founder-title" class="text-xs tracking-[0.2em] uppercase t-muted mb-8 font-medium anim-up"></p>
+          <div class="w-12 h-0.5 t-gold-bg mb-8 anim-up"></div>
+          <p id="founder-bio" class="text-[15px] leading-8 t-text-sec font-light anim-up">
             The story of Al Noor Photographer Studio & Color Lab begins with a passion for preserving life's most precious moments. Established at the prestigious Mall of Lahore, our studio has been a beacon of photographic excellence, blending traditional artistry with modern innovation to create images that transcend time.
           </p>
         </div>
@@ -308,528 +210,313 @@
     </div>
   </section>
 
-  <!-- ===================== SERVICES ===================== -->
-  <section id="services" class="py-28 md:py-36 th-bg-sec">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+  <!-- ========== SERVICES ========== -->
+  <section id="services" class="py-28 md:py-36" style="background:var(--bg-glass);">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
       <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.35em] uppercase th-accent mb-4 font-medium">What We Offer</p>
-        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-light tracking-wider uppercase th-text">Our Services</h2>
-        <div class="w-12 h-px th-bg-accent mx-auto mt-8"></div>
+        <p class="text-xs tracking-[0.3em] uppercase t-gold font-medium mb-4 anim-up">What We Offer</p>
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-medium tracking-wide t-text anim-up">Our Services</h2>
+        <div class="w-12 h-0.5 t-gold-bg mx-auto mt-8 anim-up"></div>
       </div>
-
-      <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-
-      <div id="services-placeholder" class="hidden text-center py-20">
-        <svg class="w-12 h-12 th-text-muted mx-auto mb-6 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/>
-        </svg>
-        <p class="font-heading text-2xl tracking-wider uppercase th-text-muted font-light">Services Are Being Curated</p>
-        <p class="font-body text-xs tracking-widest uppercase th-text-muted mt-3 opacity-60">Please check back soon</p>
+      <div id="svc-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+      <div id="svc-ph" class="hidden text-center py-20">
+        <div class="w-16 h-16 t-gold-bg-light rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-7 h-7 t-gold opacity-40" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg></div>
+        <p class="font-heading text-2xl tracking-wide t-muted font-light">Services Are Being Curated</p>
+        <p class="text-xs tracking-widest uppercase t-muted mt-3 opacity-60">Please check back soon</p>
       </div>
     </div>
   </section>
 
-  <!-- ===================== PORTFOLIO / GALLERIES ===================== -->
-  <section id="portfolio" class="py-28 md:py-36 th-bg">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+  <!-- ========== PORTFOLIO ========== -->
+  <section id="portfolio" class="py-28 md:py-36 t-bg">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
       <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.35em] uppercase th-accent mb-4 font-medium">Our Craft</p>
-        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-light tracking-wider uppercase th-text">Portfolio</h2>
-        <div class="w-12 h-px th-bg-accent mx-auto mt-8"></div>
+        <p class="text-xs tracking-[0.3em] uppercase t-gold font-medium mb-4 anim-up">Our Craft</p>
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-medium tracking-wide t-text anim-up">Portfolio</h2>
+        <div class="w-12 h-0.5 t-gold-bg mx-auto mt-8 anim-up"></div>
       </div>
-
-      <div id="galleries-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-
-      <div id="galleries-placeholder" class="hidden text-center py-20">
-        <svg class="w-12 h-12 th-text-muted mx-auto mb-6 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/>
-        </svg>
-        <p class="font-heading text-2xl tracking-wider uppercase th-text-muted font-light">Portfolio Is Being Updated</p>
-        <p class="font-body text-xs tracking-widest uppercase th-text-muted mt-3 opacity-60">Stay tuned for stunning visuals</p>
+      <div id="gal-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+      <div id="gal-ph" class="hidden text-center py-20">
+        <div class="w-16 h-16 t-gold-bg-light rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-7 h-7 t-gold opacity-40" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg></div>
+        <p class="font-heading text-2xl tracking-wide t-muted font-light">Portfolio Is Being Updated</p>
+        <p class="text-xs tracking-widest uppercase t-muted mt-3 opacity-60">Stay tuned for stunning visuals</p>
       </div>
     </div>
   </section>
 
-  <!-- ===================== TESTIMONIALS ===================== -->
-  <section id="testimonials" class="py-28 md:py-36 th-bg-sec">
-    <div class="max-w-4xl mx-auto px-6 lg:px-10">
+  <!-- ========== TESTIMONIALS ========== -->
+  <section id="testimonials" class="py-28 md:py-36" style="background:var(--bg-glass);">
+    <div class="max-w-4xl mx-auto px-5 lg:px-8">
       <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.35em] uppercase th-accent mb-4 font-medium">Client Words</p>
-        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-light tracking-wider uppercase th-text">Testimonials</h2>
-        <div class="w-12 h-px th-bg-accent mx-auto mt-8"></div>
+        <p class="text-xs tracking-[0.3em] uppercase t-gold font-medium mb-4 anim-up">Client Words</p>
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-medium tracking-wide t-text anim-up">Testimonials</h2>
+        <div class="w-12 h-0.5 t-gold-bg mx-auto mt-8 anim-up"></div>
       </div>
-
-      <div id="testimonials-container" class="relative min-h-[280px]"></div>
-
-      <div id="testimonials-dots" class="flex items-center justify-center gap-3 mt-12"></div>
-
-      <div id="testimonials-placeholder" class="hidden text-center py-20">
-        <svg class="w-12 h-12 th-text-muted mx-auto mb-6 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
-        </svg>
-        <p class="font-heading text-2xl tracking-wider uppercase th-text-muted font-light">Testimonials Coming Soon</p>
-        <p class="font-body text-xs tracking-widest uppercase th-text-muted mt-3 opacity-60">Client reviews will appear here</p>
+      <div id="tst-box" class="relative min-h-[300px] t-card rounded-3xl p-8 md:p-12"></div>
+      <div id="tst-dots" class="flex items-center justify-center gap-3 mt-10"></div>
+      <div id="tst-ph" class="hidden text-center py-20">
+        <div class="w-16 h-16 t-gold-bg-light rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-7 h-7 t-gold opacity-40" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg></div>
+        <p class="font-heading text-2xl tracking-wide t-muted font-light">Testimonials Coming Soon</p>
       </div>
     </div>
   </section>
 
-  <!-- ===================== CONTACT ===================== -->
-  <section id="contact" class="py-28 md:py-36 th-bg">
-    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="py-28 md:py-36 t-bg">
+    <div class="max-w-6xl mx-auto px-5 lg:px-8">
       <div class="text-center mb-20">
-        <p class="font-body text-xs tracking-[0.35em] uppercase th-accent mb-4 font-medium">Get In Touch</p>
-        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-light tracking-wider uppercase th-text">Contact Us</h2>
-        <div class="w-12 h-px th-bg-accent mx-auto mt-8"></div>
+        <p class="text-xs tracking-[0.3em] uppercase t-gold font-medium mb-4 anim-up">Get In Touch</p>
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-medium tracking-wide t-text anim-up">Contact Us</h2>
+        <div class="w-12 h-0.5 t-gold-bg mx-auto mt-8 anim-up"></div>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-        <div class="text-center lg:text-left">
-          <div class="w-10 h-10 th-bg-accent-light rounded-none flex items-center justify-center mx-auto lg:mx-0 mb-5">
-            <svg class="w-5 h-5 th-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
-            </svg>
-          </div>
-          <h3 class="font-heading text-lg tracking-widest uppercase th-text font-medium mb-3">Visit Our Studio</h3>
-          <p id="contact-address" class="font-body text-sm th-text-sec font-light leading-7">Shop# 18B, Mall of Lahore, Tufail Road, Lahore Cantt, Pakistan</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Al+Noor+Photographer+Studio+%26+Color+Lab" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-5 text-xs tracking-widest uppercase th-accent font-medium hover:underline transition-all duration-300">
-            <span>Open in Maps</span>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
-            </svg>
-          </a>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="t-card rounded-3xl p-8 text-center anim-up hover:shadow-lg transition-shadow duration-300">
+          <div class="w-14 h-14 t-gold-bg-light rounded-2xl flex items-center justify-center mx-auto mb-5"><svg class="w-6 h-6 t-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg></div>
+          <h3 class="font-heading text-lg tracking-wide t-text font-medium mb-3">Visit Us</h3>
+          <p id="c-addr" class="text-sm t-text-sec font-light leading-7">Shop# 18B, Mall of Lahore, Tufail Road, Lahore Cantt, Pakistan</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Al+Noor+Photographer+Studio+%26+Color+Lab" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-5 text-xs tracking-widest uppercase t-gold font-medium hover:underline transition-all">Open in Maps <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
         </div>
-
-        <div class="text-center">
-          <div class="w-10 h-10 th-bg-accent-light rounded-none flex items-center justify-center mx-auto mb-5">
-            <svg class="w-5 h-5 th-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
-            </svg>
-          </div>
-          <h3 class="font-heading text-lg tracking-widest uppercase th-text font-medium mb-3">Call Us</h3>
-          <div class="flex flex-col items-center gap-2">
-            <a href="tel:+923214250911" class="font-body text-sm th-text-sec font-light hover:th-accent transition-colors duration-300">+92 321 4250911</a>
-            <a href="tel:+923214917028" class="font-body text-sm th-text-sec font-light hover:th-accent transition-colors duration-300">+92 321 4917028</a>
-          </div>
+        <div class="t-card rounded-3xl p-8 text-center anim-up hover:shadow-lg transition-shadow duration-300">
+          <div class="w-14 h-14 t-gold-bg-light rounded-2xl flex items-center justify-center mx-auto mb-5"><svg class="w-6 h-6 t-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg></div>
+          <h3 class="font-heading text-lg tracking-wide t-text font-medium mb-3">Call Us</h3>
+          <a href="tel:+923214250911" class="text-sm t-text-sec font-light hover:t-gold transition-colors block">+92 321 4250911</a>
+          <a href="tel:+923214917028" class="text-sm t-text-sec font-light hover:t-gold transition-colors block mt-1">+92 321 4917028</a>
         </div>
-
-        <div class="text-center lg:text-right">
-          <div class="w-10 h-10 th-bg-accent-light rounded-none flex items-center justify-center mx-auto lg:ml-auto lg:mr-0 mb-5">
-            <svg class="w-5 h-5 th-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
-            </svg>
-          </div>
-          <h3 class="font-heading text-lg tracking-widest uppercase th-text font-medium mb-3">Email & Social</h3>
-          <a href="mailto:alnoorphotographers@gmail.com" class="font-body text-sm th-text-sec font-light hover:th-accent transition-colors duration-300 block mb-5">alnoorphotographers@gmail.com</a>
-          <div class="flex items-center justify-center lg:justify-end gap-4">
-            <a href="https://www.facebook.com/profile.php?id=100064331273895" target="_blank" rel="noopener noreferrer" class="w-9 h-9 th-border rounded-none flex items-center justify-center th-text-muted hover:th-accent hover:border-[var(--accent)] transition-all duration-300" aria-label="Facebook">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/alnoorphotographersofficial/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 th-border rounded-none flex items-center justify-center th-text-muted hover:th-accent hover:border-[var(--accent)] transition-all duration-300" aria-label="Instagram">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
-            <a href="https://www.tiktok.com/@alnooorphotophers" target="_blank" rel="noopener noreferrer" class="w-9 h-9 th-border rounded-none flex items-center justify-center th-text-muted hover:th-accent hover:border-[var(--accent)] transition-all duration-300" aria-label="TikTok">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-            </a>
+        <div class="t-card rounded-3xl p-8 text-center anim-up hover:shadow-lg transition-shadow duration-300">
+          <div class="w-14 h-14 t-gold-bg-light rounded-2xl flex items-center justify-center mx-auto mb-5"><svg class="w-6 h-6 t-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg></div>
+          <h3 class="font-heading text-lg tracking-wide t-text font-medium mb-3">Email & Social</h3>
+          <a href="mailto:alnoorphotographers@gmail.com" class="text-sm t-text-sec font-light hover:t-gold transition-colors block mb-4">alnoorphotographers@gmail.com</a>
+          <div class="flex items-center justify-center gap-3">
+            <a href="https://www.facebook.com/profile.php?id=100064331273895" target="_blank" rel="noopener noreferrer" class="w-10 h-10 t-border rounded-full flex items-center justify-center t-muted hover:t-gold hover:border-[var(--gold)] transition-all" aria-label="Facebook"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.instagram.com/alnoorphotographersofficial/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 t-border rounded-full flex items-center justify-center t-muted hover:t-gold hover:border-[var(--gold)] transition-all" aria-label="Instagram"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="https://www.tiktok.com/@alnooorphotophers" target="_blank" rel="noopener noreferrer" class="w-10 h-10 t-border rounded-full flex items-center justify-center t-muted hover:t-gold hover:border-[var(--gold)] transition-all" aria-label="TikTok"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="py-12 th-bg-ter th-border-t">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="flex flex-col items-center md:items-start">
-          <span class="font-heading text-lg tracking-widest uppercase th-accent font-medium">Al Noor</span>
-          <span class="font-body text-[9px] tracking-[0.2em] uppercase th-text-muted mt-0.5">Photographer Studio & Color Lab</span>
-        </div>
-        <p class="font-body text-[10px] tracking-widest uppercase th-text-muted">
-          Developed by <a href="#" class="th-accent hover:underline transition-all duration-300">Webeflow</a>
-        </p>
-        <p class="font-body text-[10px] tracking-widest uppercase th-text-muted">
-          &copy; <span id="footer-year"></span> All Rights Reserved
-        </p>
+  <!-- ========== FOOTER ========== -->
+  <footer class="py-10 border-t t-border t-bg">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-col items-center md:items-start">
+        <span class="font-heading text-lg t-gold font-medium tracking-wide">Al Noor</span>
+        <span class="text-[9px] tracking-[0.2em] uppercase t-muted">Photographer Studio & Color Lab</span>
       </div>
+      <p class="text-[10px] tracking-widest uppercase t-muted">Developed by <a href="#" class="t-gold hover:underline transition-all">Webeflow</a></p>
+      <p class="text-[10px] tracking-widest uppercase t-muted">&copy; <span id="yr"></span> All Rights Reserved</p>
     </div>
   </footer>
 
-  <!-- ===================== WHATSAPP BUTTON ===================== -->
-  <a href="https://wa.me/923344978000?text=Hello%20Al%20Noor%20Studio!%20I%20would%20like%20to%20book%20a%20photography%20session." target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-40 w-14 h-14 th-bg-accent rounded-none flex items-center justify-center whatsapp-pulse hover:scale-110 transition-transform duration-300" aria-label="WhatsApp">
+  <!-- ========== WHATSAPP ========== -->
+  <a href="https://wa.me/923344978000?text=Hello%20Al%20Noor%20Studio!%20I%20would%20like%20to%20book%20a%20photography%20session." target="_blank" rel="noopener noreferrer" class="fixed bottom-7 right-7 z-40 w-14 h-14 t-gold-bg rounded-full flex items-center justify-center wa-pulse hover:scale-110 transition-transform duration-300 shadow-lg" aria-label="WhatsApp">
     <svg class="w-7 h-7 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
-  <!-- ===================== THEME TOGGLE ===================== -->
-  <button id="theme-toggle" onclick="toggleTheme()" class="fixed bottom-8 left-8 z-40 w-12 h-12 th-card th-border rounded-none flex items-center justify-center th-text-muted hover:th-accent hover:border-[var(--accent)] th-shadow transition-all duration-300" aria-label="Toggle theme">
-    <svg id="theme-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
-    </svg>
-    <svg id="theme-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
-    </svg>
+  <!-- ========== THEME TOGGLE ========== -->
+  <button id="theme-btn" onclick="toggleTheme()" class="fixed bottom-7 left-7 z-40 w-12 h-12 t-card t-border rounded-full flex items-center justify-center t-muted hover:t-gold hover:border-[var(--gold)] shadow-md transition-all duration-300" aria-label="Toggle theme">
+    <svg id="ico-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+    <svg id="ico-moon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
   </button>
 
-  <!-- ===================== CLOSE BUTTON — DIRECT CHILD OF BODY, CENTER SCREEN ===================== -->
-  <button id="lb-close-btn" aria-label="Close">
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="6" y1="6" x2="18" y2="18"></line>
-      <line x1="6" y1="18" x2="18" y2="6"></line>
-    </svg>
+  <!-- ========== LIGHTBOX CLOSE BUTTON — IN BODY, CENTER SCREEN, ROUND ========== -->
+  <button id="lb-close" aria-label="Close">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
   </button>
 
-  <!-- ===================== LIGHTBOX ===================== -->
-  <div id="lightbox" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true" onclick="closeLightbox()">
-    <div style="position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:90px 16px 100px 16px;" onclick="event.stopPropagation();">
+  <!-- ========== LIGHTBOX ========== -->
+  <div id="lightbox" class="fixed inset-0 z-[100] hidden" onclick="closeLB()">
+    <div style="position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 20px 110px 20px;" onclick="event.stopPropagation();">
       <div style="position:relative;max-width:1024px;width:100%;flex:1;display:flex;align-items:center;justify-content:center;">
-        <button id="lb-prev" onclick="event.stopPropagation(); lightboxPrev();" style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:48px;height:48px;background-color:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);cursor:pointer;pointer-events:auto;z-index:20;" aria-label="Previous image">
-          <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
-          </svg>
+        <button id="lb-prev" onclick="event.stopPropagation();lbPrev();" style="position:absolute;left:-10px;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text);cursor:pointer;z-index:20;box-shadow:var(--shadow);transition:all 0.3s;" aria-label="Previous">
+          <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M15 19l-7-7 7-7"/></svg>
         </button>
-
-        <img id="lb-image" src="" alt="" style="max-height:65vh;max-width:100%;object-fit:contain;box-shadow:0 4px 40px var(--shadow-color);" onclick="event.stopPropagation();">
-
-        <button id="lb-next" onclick="event.stopPropagation(); lightboxNext();" style="position:absolute;right:0;top:50%;transform:translateY(-50%);width:48px;height:48px;background-color:var(--card-bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-primary);cursor:pointer;pointer-events:auto;z-index:20;" aria-label="Next image">
-          <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
-          </svg>
+        <img id="lb-img" src="" alt="" style="max-height:65vh;max-width:100%;object-fit:contain;border-radius:16px;box-shadow:var(--shadow-lg);" onclick="event.stopPropagation();">
+        <button id="lb-next" onclick="event.stopPropagation();lbNext();" style="position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text);cursor:pointer;z-index:20;box-shadow:var(--shadow);transition:all 0.3s;" aria-label="Next">
+          <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg>
         </button>
       </div>
-
-      <div style="margin-top:16px;text-align:center;flex-shrink:0;" onclick="event.stopPropagation();">
-        <p id="lb-counter" style="font-family:Montserrat,sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);"></p>
-        <p id="lb-title" style="font-family:Cormorant Garamond,serif;font-size:18px;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-primary);margin-top:4px;"></p>
+      <div style="margin-top:20px;text-align:center;" onclick="event.stopPropagation();">
+        <p id="lb-counter" style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:Outfit,sans-serif;"></p>
+        <p id="lb-title" style="font-size:18px;letter-spacing:0.05em;text-transform:uppercase;color:var(--text);margin-top:4px;font-family:Playfair Display,serif;"></p>
       </div>
     </div>
   </div>
 
-  <!-- ===================== JAVASCRIPT ===================== -->
+  <!-- ========== JS ========== -->
   <script>
-    var generalData = null;
-    var servicesData = null;
-    var galleriesData = null;
-    var testimonialsData = null;
+    var G=null,S=null,Gal=null,T=null;
+    var lbImgs=[],lbIdx=0,lbTitle='';
+    var tIdx=0,tTimer=null;
 
-    var lbGalleryImages = [];
-    var lbCurrentIndex = 0;
-    var lbGalleryTitle = '';
+    // Close button — capture phase, fires before anything
+    document.getElementById('lb-close').addEventListener('click',function(e){
+      e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
+      closeLB();
+    },true);
 
-    var testimonialIndex = 0;
-    var testimonialTimer = null;
-
-    // ===== ATTACH CLOSE BUTTON CLICK VIA JS — NOT INLINE ONCLICK =====
-    document.getElementById('lb-close-btn').addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
-      closeLightbox();
-    }, true); // true = capture phase, fires before anything else
-
-    function initTheme() {
-      var saved = localStorage.getItem('alnoor-theme');
-      if (saved === 'dark') {
+    // Theme
+    function initTheme(){
+      if(localStorage.getItem('alnoor-theme')==='dark'){
         document.body.classList.add('dark-theme');
-        document.getElementById('theme-sun').classList.remove('hidden');
-        document.getElementById('theme-moon').classList.add('hidden');
+        document.getElementById('ico-sun').classList.remove('hidden');
+        document.getElementById('ico-moon').classList.add('hidden');
       }
     }
-
-    function toggleTheme() {
+    function toggleTheme(){
       document.body.classList.toggle('dark-theme');
-      var isDark = document.body.classList.contains('dark-theme');
-      localStorage.setItem('alnoor-theme', isDark ? 'dark' : 'light');
-      document.getElementById('theme-sun').classList.toggle('hidden', !isDark);
-      document.getElementById('theme-moon').classList.toggle('hidden', isDark);
+      var d=document.body.classList.contains('dark-theme');
+      localStorage.setItem('alnoor-theme',d?'dark':'light');
+      document.getElementById('ico-sun').classList.toggle('hidden',!d);
+      document.getElementById('ico-moon').classList.toggle('hidden',d);
     }
 
-    var mobileMenuOpen = false;
-
-    function toggleMobileMenu() {
-      mobileMenuOpen = !mobileMenuOpen;
-      var menu = document.getElementById('mobile-menu');
-      var iconOpen = document.getElementById('menu-icon-open');
-      var iconClose = document.getElementById('menu-icon-close');
-      if (mobileMenuOpen) {
-        menu.classList.add('open');
-        iconOpen.classList.add('hidden');
-        iconClose.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-      } else {
-        closeMobileMenu();
-      }
+    // Menu
+    var menuOpen=false;
+    function toggleMenu(){
+      menuOpen=!menuOpen;
+      var m=document.getElementById('mob-menu');
+      if(menuOpen){m.classList.add('open');document.getElementById('ico-open').classList.add('hidden');document.getElementById('ico-close').classList.remove('hidden');document.body.style.overflow='hidden';}
+      else closeMenu();
+    }
+    function closeMenu(){
+      menuOpen=false;document.getElementById('mob-menu').classList.remove('open');document.getElementById('ico-open').classList.remove('hidden');document.getElementById('ico-close').classList.add('hidden');document.body.style.overflow='';
     }
 
-    function closeMobileMenu() {
-      mobileMenuOpen = false;
-      document.getElementById('mobile-menu').classList.remove('open');
-      document.getElementById('menu-icon-open').classList.remove('hidden');
-      document.getElementById('menu-icon-close').classList.add('hidden');
-      document.body.style.overflow = '';
+    function scrollTo(id){var el=document.getElementById(id);if(el){window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-80,behavior:'smooth'});}}
+
+    // Scroll header
+    window.addEventListener('scroll',function(){
+      document.getElementById('header').style.boxShadow=window.scrollY>50?'var(--shadow)':'none';
+    },{passive:true});
+
+    // Fetch
+    async function sf(url){try{var r=await fetch(url);if(!r.ok)throw 0;return await r.json();}catch(e){return null;}}
+
+    // Stars
+    function stars(r){
+      var n=parseInt(r)||5,h='<div class="flex items-center gap-1 justify-center">';
+      for(var i=1;i<=5;i++) h+='<svg class="w-4 h-4 '+(i<=n?'text-[var(--gold)]':'t-muted opacity-30')+'" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
+      return h+'</div>';
     }
 
-    function scrollToSection(id) {
-      var el = document.getElementById(id);
-      if (el) {
-        var top = el.getBoundingClientRect().top + window.pageYOffset - 80;
-        window.scrollTo({ top: top, behavior: 'smooth' });
-      }
+    // Render General
+    function rGeneral(){
+      if(!G)return;var d=G;
+      if(d.logo_text)document.getElementById('h-logo').textContent=d.logo_text;
+      if(d.logo_subtitle)document.getElementById('h-sub').textContent=d.logo_subtitle;
+      if(d.hero_title)document.getElementById('hero-title').innerHTML=d.hero_title.replace(/\n/g,'<br>');
+      if(d.hero_subtitle)document.getElementById('hero-sub').textContent=d.hero_subtitle;
+      if(d.hero_cta_text)document.getElementById('hero-cta').querySelector('span').textContent=d.hero_cta_text;
+      if(d.founder_name)document.getElementById('founder-name').textContent=d.founder_name;
+      if(d.founder_title)document.getElementById('founder-title').textContent=d.founder_title;
+      if(d.founder_bio)document.getElementById('founder-bio').textContent=d.founder_bio;
+      if(d.founder_image){var img=document.getElementById('founder-img');img.src=d.founder_image;img.alt=d.founder_name||'Founder';img.classList.remove('hidden');}
+      if(d.address)document.getElementById('c-addr').textContent=d.address;
+      if(d.logo_text)document.title=d.logo_text+' — Photographer Studio & Color Lab';
     }
 
-    function handleHeaderScroll() {
-      var header = document.getElementById('site-header');
-      if (window.scrollY > 50) {
-        header.classList.add('th-shadow');
-      } else {
-        header.classList.remove('th-shadow');
-      }
-    }
-
-    async function safeFetch(url) {
-      try {
-        var response = await fetch(url);
-        if (!response.ok) throw new Error('HTTP ' + response.status);
-        return await response.json();
-      } catch (err) {
-        console.warn('[Al Noor] Failed to fetch ' + url + ':', err.message);
-        return null;
-      }
-    }
-
-    function renderStars(rating) {
-      var r = parseInt(rating) || 5;
-      var html = '<div class="flex items-center gap-1 justify-center">';
-      for (var i = 1; i <= 5; i++) {
-        var color = i <= r ? 'text-[#D4AF37]' : 'th-text-muted opacity-30';
-        html += '<svg class="w-4 h-4 ' + color + '" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
-      }
-      html += '</div>';
-      return html;
-    }
-
-    function renderGeneral() {
-      if (!generalData) return;
-      var d = generalData;
-      if (d.logo_text) document.getElementById('header-logo').textContent = d.logo_text;
-      if (d.logo_subtitle) document.getElementById('header-subtitle').textContent = d.logo_subtitle;
-      if (d.hero_title) document.getElementById('hero-title').innerHTML = d.hero_title.replace(/\n/g, '<br>');
-      if (d.hero_subtitle) document.getElementById('hero-subtitle').textContent = d.hero_subtitle;
-      if (d.hero_cta_text) document.getElementById('hero-cta').textContent = d.hero_cta_text;
-      if (d.founder_name) document.getElementById('founder-name').textContent = d.founder_name;
-      if (d.founder_title) document.getElementById('founder-title').textContent = d.founder_title;
-      if (d.founder_bio) document.getElementById('founder-bio').textContent = d.founder_bio;
-      if (d.founder_image) {
-        var img = document.getElementById('founder-image');
-        img.src = d.founder_image;
-        img.alt = d.founder_name || 'Founder';
-        img.classList.remove('hidden');
-      }
-      if (d.address) document.getElementById('contact-address').textContent = d.address;
-      if (d.logo_text) document.title = d.logo_text + ' — Photographer Studio & Color Lab';
-    }
-
-    function renderServices() {
-      var grid = document.getElementById('services-grid');
-      var placeholder = document.getElementById('services-placeholder');
-      var items = servicesData && servicesData.services;
-      if (!items || !Array.isArray(items) || items.length === 0) {
-        grid.classList.add('hidden');
-        placeholder.classList.remove('hidden');
-        return;
-      }
-      placeholder.classList.add('hidden');
-      grid.classList.remove('hidden');
-      grid.innerHTML = items.map(function(s, i) {
-        var hasImage = s.cover_image && s.cover_image.trim() !== '';
-        var imageBlock = hasImage
-          ? '<div class="aspect-[4/3] overflow-hidden rounded-none"><img src="' + s.cover_image + '" alt="' + (s.title || 'Service') + '" class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105" loading="lazy"></div>'
-          : '<div class="aspect-[4/3] img-placeholder rounded-none flex items-center justify-center"><svg class="w-10 h-10 th-text-muted opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg></div>';
-        return '<div class="th-card rounded-none overflow-hidden th-border th-shadow group" style="animation: fadeInUp 0.6s ease-out ' + (i * 0.1) + 's forwards; opacity: 0;">' + imageBlock + '<div class="p-8"><h3 class="font-heading text-xl tracking-widest uppercase th-text font-medium mb-3">' + (s.title || 'Service') + '</h3><div class="w-8 h-px th-bg-accent mb-4"></div><p class="font-body text-sm th-text-sec font-light leading-7">' + (s.description || '') + '</p></div></div>';
+    // Render Services
+    function rServices(){
+      var grid=document.getElementById('svc-grid'),ph=document.getElementById('svc-ph'),items=S&&S.services;
+      if(!items||!items.length){grid.classList.add('hidden');ph.classList.remove('hidden');return;}
+      ph.classList.add('hidden');grid.classList.remove('hidden');
+      grid.innerHTML=items.map(function(s,i){
+        var img=s.cover_image&&s.cover_image.trim()?('<div class="aspect-[4/3] rounded-2xl overflow-hidden"><img src="'+s.cover_image+'" alt="'+(s.title||'')+'" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy"></div>'):'<div class="aspect-[4/3] rounded-2xl flex items-center justify-center" style="background:var(--gold-glow);"><svg class="w-10 h-10 t-gold opacity-30" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg></div>';
+        return '<div class="t-card rounded-3xl overflow-hidden hover:shadow-lg transition-shadow duration-300 anim-up">'+img+'<div class="p-7"><h3 class="font-heading text-xl tracking-wide t-text font-medium mb-2">'+(s.title||'Service')+'</h3><div class="w-8 h-0.5 t-gold-bg rounded-full mb-4"></div><p class="text-sm t-text-sec font-light leading-7">'+(s.description||'')+'</p></div></div>';
       }).join('');
     }
 
-    function renderGalleries() {
-      var grid = document.getElementById('galleries-grid');
-      var placeholder = document.getElementById('galleries-placeholder');
-      var items = galleriesData && galleriesData.galleries;
-      if (!items || !Array.isArray(items) || items.length === 0) {
-        grid.classList.add('hidden');
-        placeholder.classList.remove('hidden');
-        return;
-      }
-      placeholder.classList.add('hidden');
-      grid.classList.remove('hidden');
-      grid.innerHTML = items.map(function(g, i) {
-        var hasCover = g.cover_image && g.cover_image.trim() !== '';
-        var hasImages = g.images && Array.isArray(g.images) && g.images.length > 0;
-        var imageCount = hasImages ? g.images.length : 0;
-        var coverBlock = hasCover
-          ? '<img src="' + g.cover_image + '" alt="' + (g.title || 'Gallery') + '" class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105" loading="lazy">'
-          : '<div class="w-full h-full img-placeholder flex items-center justify-center"><svg class="w-12 h-12 th-text-muted opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg></div>';
-        var clickable = hasImages ? 'cursor-pointer' : 'cursor-default';
-        var clickHandler = hasImages ? 'onclick="openLightbox(' + i + ')"' : '';
-        var badge = hasImages ? '<span class="absolute bottom-4 left-4 px-3 py-1.5 th-bg-accent text-black text-[10px] tracking-widest uppercase font-semibold rounded-none">' + imageCount + ' Photos</span>' : '';
-        return '<div class="th-card rounded-none overflow-hidden th-border th-shadow group ' + clickable + '" ' + clickHandler + ' style="animation: fadeInUp 0.6s ease-out ' + (i * 0.1) + 's forwards; opacity: 0;"><div class="relative aspect-[4/3] overflow-hidden rounded-none">' + coverBlock + badge + '</div><div class="p-8"><h3 class="font-heading text-xl tracking-widest uppercase th-text font-medium">' + (g.title || 'Gallery') + '</h3><div class="w-8 h-px th-bg-accent mt-4"></div></div></div>';
+    // Render Galleries
+    function rGalleries(){
+      var grid=document.getElementById('gal-grid'),ph=document.getElementById('gal-ph'),items=Gal&&Gal.galleries;
+      if(!items||!items.length){grid.classList.add('hidden');ph.classList.remove('hidden');return;}
+      ph.classList.add('hidden');grid.classList.remove('hidden');
+      grid.innerHTML=items.map(function(g,i){
+        var hasImg=g.images&&g.images.length>0,cnt=hasImg?g.images.length:0;
+        var cover=g.cover_image&&g.cover_image.trim()?('<img src="'+g.cover_image+'" alt="'+(g.title||'')+'" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy">'):('<div class="w-full h-full flex items-center justify-center" style="background:var(--gold-glow);"><svg class="w-12 h-12 t-gold opacity-30" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg></div>');
+        var badge=hasImg?'<span class="absolute bottom-4 left-4 px-4 py-1.5 t-gold-bg text-black text-[10px] tracking-widest uppercase font-semibold rounded-full">'+cnt+' Photos</span>':'';
+        var click=hasImg?'onclick="openLB('+i+')" style="cursor:pointer;"':'';
+        return '<div class="t-card rounded-3xl overflow-hidden hover:shadow-lg transition-shadow duration-300 anim-up" '+click+'><div class="relative aspect-[4/3] rounded-3xl overflow-hidden">'+cover+badge+'</div><div class="p-7"><h3 class="font-heading text-xl tracking-wide t-text font-medium">'+(g.title||'Gallery')+'</h3><div class="w-8 h-0.5 t-gold-bg rounded-full mt-4"></div></div></div>';
       }).join('');
     }
 
-    function renderTestimonials() {
-      var container = document.getElementById('testimonials-container');
-      var dotsContainer = document.getElementById('testimonials-dots');
-      var placeholder = document.getElementById('testimonials-placeholder');
-      var items = testimonialsData && testimonialsData.testimonials;
-      if (!items || !Array.isArray(items) || items.length === 0) {
-        container.classList.add('hidden');
-        dotsContainer.classList.add('hidden');
-        placeholder.classList.remove('hidden');
-        return;
-      }
-      placeholder.classList.add('hidden');
-      container.classList.remove('hidden');
-      dotsContainer.classList.remove('hidden');
-      container.innerHTML = items.map(function(t, i) {
-        var hasAvatar = t.avatar && t.avatar.trim() !== '';
-        var avatarBlock = hasAvatar
-          ? '<img src="' + t.avatar + '" alt="' + (t.name || 'Client') + '" class="w-16 h-16 object-cover rounded-none th-border">'
-          : '<div class="w-16 h-16 th-bg-accent-light rounded-none flex items-center justify-center"><span class="font-heading text-2xl th-accent font-medium">' + (t.name ? t.name.charAt(0).toUpperCase() : '?') + '</span></div>';
-        return '<div class="testimonial-slide ' + (i === 0 ? 'active' : '') + '" data-index="' + i + '"><div class="text-center px-4"><div class="flex justify-center mb-6">' + avatarBlock + '</div><div class="mb-5">' + renderStars(t.rating) + '</div><p class="font-body text-base md:text-lg th-text-sec font-light leading-8 italic max-w-2xl mx-auto">"' + (t.feedback || '') + '"</p><div class="mt-8"><p class="font-heading text-lg tracking-widest uppercase th-text font-medium">' + (t.name || 'Anonymous') + '</p></div></div></div>';
+    // Render Testimonials
+    function rTestimonials(){
+      var box=document.getElementById('tst-box'),dots=document.getElementById('tst-dots'),ph=document.getElementById('tst-ph'),items=T&&T.testimonials;
+      if(!items||!items.length){box.classList.add('hidden');dots.classList.add('hidden');ph.classList.remove('hidden');return;}
+      ph.classList.add('hidden');box.classList.remove('hidden');dots.classList.remove('hidden');
+      box.innerHTML=items.map(function(t,i){
+        var av=t.avatar&&t.avatar.trim()?('<img src="'+t.avatar+'" alt="'+(t.name||'')+'" class="w-16 h-16 object-cover rounded-full border-2 t-border">'):('<div class="w-16 h-16 t-gold-bg-light rounded-full flex items-center justify-center"><span class="font-heading text-2xl t-gold font-medium">'+(t.name?t.name.charAt(0).toUpperCase():'?')+'</span></div>');
+        return '<div class="slide '+(i===0?'active':'')+'" data-i="'+i+'"><div class="text-center"><div class="flex justify-center mb-6">'+av+'</div><div class="mb-6">'+stars(t.rating)+'</div><p class="text-base md:text-lg t-text-sec font-light leading-8 italic max-w-2xl mx-auto">"'+(t.feedback||'')+'"</p><div class="mt-8"><p class="font-heading text-lg tracking-wide t-text font-medium">'+(t.name||'Anonymous')+'</p></div></div></div>';
       }).join('');
-      dotsContainer.innerHTML = items.map(function(t, i) {
-        return '<button onclick="goToTestimonial(' + i + ')" class="w-2.5 h-2.5 rounded-none transition-all duration-300 ' + (i === 0 ? 'th-bg-accent' : 'th-bg th-border') + '" aria-label="Go to testimonial ' + (i + 1) + '"></button>';
-      }).join('');
-      testimonialIndex = 0;
-      startTestimonialTimer();
+      dots.innerHTML=items.map(function(_,i){return '<button onclick="goTst('+i+')" class="w-2.5 h-2.5 rounded-full transition-all duration-300 '+(i===0?'t-gold-bg':'t-muted opacity-30')+'" style="background:'+(i===0?'var(--gold)':'var(--text-muted)')+'" aria-label="Testimonial '+(i+1)+'"></button>';}).join('');
+      tIdx=0;startTst();
     }
-
-    function goToTestimonial(index) {
-      var slides = document.querySelectorAll('.testimonial-slide');
-      var dots = document.querySelectorAll('#testimonials-dots button');
-      if (slides.length === 0) return;
-      slides.forEach(function(s) { s.classList.remove('active'); });
-      dots.forEach(function(d) { d.classList.remove('th-bg-accent'); d.classList.add('th-bg', 'th-border'); });
-      testimonialIndex = index;
-      if (testimonialIndex >= slides.length) testimonialIndex = 0;
-      if (testimonialIndex < 0) testimonialIndex = slides.length - 1;
-      slides[testimonialIndex].classList.add('active');
-      if (dots[testimonialIndex]) { dots[testimonialIndex].classList.add('th-bg-accent'); dots[testimonialIndex].classList.remove('th-bg', 'th-border'); }
-      resetTestimonialTimer();
+    function goTst(i){
+      var sl=document.querySelectorAll('.slide'),dt=document.querySelectorAll('#tst-dots button');
+      if(!sl.length)return;
+      sl.forEach(function(s){s.classList.remove('active');});
+      dt.forEach(function(d){d.style.background='var(--text-muted)';d.style.opacity='0.3';});
+      tIdx=i;if(tIdx>=sl.length)tIdx=0;if(tIdx<0)tIdx=sl.length-1;
+      sl[tIdx].classList.add('active');
+      if(dt[tIdx]){dt[tIdx].style.background='var(--gold)';dt[tIdx].style.opacity='1';}
+      resetTst();
     }
+    function startTst(){tTimer=setInterval(function(){goTst(tIdx+1);},5000);}
+    function resetTst(){if(tTimer)clearInterval(tTimer);startTst();}
 
-    function startTestimonialTimer() {
-      testimonialTimer = setInterval(function() { goToTestimonial(testimonialIndex + 1); }, 5000);
-    }
-
-    function resetTestimonialTimer() {
-      if (testimonialTimer) clearInterval(testimonialTimer);
-      startTestimonialTimer();
-    }
-
-    // ===== LIGHTBOX =====
-    function openLightbox(galleryIndex) {
-      var galleries = galleriesData && galleriesData.galleries;
-      if (!galleries || !galleries[galleryIndex]) return;
-      var gallery = galleries[galleryIndex];
-      var images = gallery.images;
-      if (!images || !Array.isArray(images) || images.length === 0) return;
-      lbGalleryImages = images.map(function(img) {
-        return { src: img.image || '', alt: img.alt_text || gallery.title || 'Image' };
-      });
-      lbGalleryTitle = gallery.title || 'Gallery';
-      lbCurrentIndex = 0;
-      updateLightbox();
+    // Lightbox
+    function openLB(gi){
+      var gals=Gal&&Gal.galleries;if(!gals||!gals[gi])return;
+      var gal=gals[gi],imgs=gal.images;if(!imgs||!imgs.length)return;
+      lbImgs=imgs.map(function(m){return{src:m.image||'',alt:m.alt_text||gal.title||''};});
+      lbTitle=gal.title||'Gallery';lbIdx=0;
+      updLB();
       document.getElementById('lightbox').classList.remove('hidden');
-      document.getElementById('lb-close-btn').classList.add('show');
+      document.getElementById('lb-close').classList.add('show');
       document.body.classList.add('lightbox-open');
     }
-
-    function closeLightbox() {
+    function closeLB(){
       document.getElementById('lightbox').classList.add('hidden');
-      document.getElementById('lb-close-btn').classList.remove('show');
+      document.getElementById('lb-close').classList.remove('show');
       document.body.classList.remove('lightbox-open');
-      lbGalleryImages = [];
+      lbImgs=[];
+    }
+    function lbPrev(){if(!lbImgs.length)return;lbIdx--;if(lbIdx<0)lbIdx=lbImgs.length-1;updLB();}
+    function lbNext(){if(!lbImgs.length)return;lbIdx++;if(lbIdx>=lbImgs.length)lbIdx=0;updLB();}
+    function updLB(){
+      var img=document.getElementById('lb-img'),c=document.getElementById('lb-counter'),t=document.getElementById('lb-title'),p=document.getElementById('lb-prev'),n=document.getElementById('lb-next');
+      if(lbImgs.length<=1){p.style.display='none';n.style.display='none';}else{p.style.display='flex';n.style.display='flex';}
+      var cur=lbImgs[lbIdx];if(cur){img.src=cur.src;img.alt=cur.alt;}
+      c.textContent=(lbIdx+1)+' / '+lbImgs.length;t.textContent=lbTitle;
     }
 
-    function lightboxPrev() {
-      if (lbGalleryImages.length === 0) return;
-      lbCurrentIndex--;
-      if (lbCurrentIndex < 0) lbCurrentIndex = lbGalleryImages.length - 1;
-      updateLightbox();
-    }
-
-    function lightboxNext() {
-      if (lbGalleryImages.length === 0) return;
-      lbCurrentIndex++;
-      if (lbCurrentIndex >= lbGalleryImages.length) lbCurrentIndex = 0;
-      updateLightbox();
-    }
-
-    function updateLightbox() {
-      var img = document.getElementById('lb-image');
-      var counter = document.getElementById('lb-counter');
-      var title = document.getElementById('lb-title');
-      var prevBtn = document.getElementById('lb-prev');
-      var nextBtn = document.getElementById('lb-next');
-      if (lbGalleryImages.length <= 1) {
-        prevBtn.style.display = 'none';
-        nextBtn.style.display = 'none';
-      } else {
-        prevBtn.style.display = 'flex';
-        nextBtn.style.display = 'flex';
-      }
-      var current = lbGalleryImages[lbCurrentIndex];
-      if (current) { img.src = current.src; img.alt = current.alt; }
-      counter.textContent = (lbCurrentIndex + 1) + ' / ' + lbGalleryImages.length;
-      title.textContent = lbGalleryTitle;
-    }
-
-    document.addEventListener('keydown', function(e) {
-      var lightbox = document.getElementById('lightbox');
-      if (lightbox.classList.contains('hidden')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') lightboxPrev();
-      if (e.key === 'ArrowRight') lightboxNext();
+    // Keyboard
+    document.addEventListener('keydown',function(e){
+      if(document.getElementById('lightbox').classList.contains('hidden'))return;
+      if(e.key==='Escape')closeLB();
+      if(e.key==='ArrowLeft')lbPrev();
+      if(e.key==='ArrowRight')lbNext();
     });
 
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-    window.addEventListener('scroll', handleHeaderScroll, { passive: true });
-
-    function initScrollAnimations() {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-      document.querySelectorAll('#founder, #services, #portfolio, #testimonials, #contact').forEach(function(section) {
-        section.querySelectorAll('h2, .text-center > p, .text-center > div').forEach(function(el) {
-          el.style.opacity = '0';
-          el.style.transform = 'translateY(20px)';
-          el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
-          observer.observe(el);
-        });
-      });
+    // Scroll animations
+    function initAnim(){
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible');});
+      },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+      document.querySelectorAll('.anim-up').forEach(function(el){obs.observe(el);});
     }
 
-    async function init() {
+    // Init
+    document.getElementById('yr').textContent=new Date().getFullYear();
+    (async function(){
       initTheme();
-      var results = await Promise.all([
-        safeFetch('data/general.json'),
-        safeFetch('data/services.json'),
-        safeFetch('data/galleries.json'),
-        safeFetch('data/testimonials.json')
-      ]);
-      generalData = results[0];
-      servicesData = results[1];
-      galleriesData = results[2];
-      testimonialsData = results[3];
-      renderGeneral();
-      renderServices();
-      renderGalleries();
-      renderTestimonials();
-      requestAnimationFrame(function() { initScrollAnimations(); });
-    }
-
-    init();
+      var r=await Promise.all([sf('data/general.json'),sf('data/services.json'),sf('data/galleries.json'),sf('data/testimonials.json')]);
+      G=r[0];S=r[1];Gal=r[2];T=r[3];
+      rGeneral();rServices();rGalleries();rTestimonials();
+      requestAnimationFrame(initAnim);
+    })();
   </script>
-
 </body>
 </html>
