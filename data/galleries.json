@@ -1,16 +1,50 @@
 {
   "galleries": [
     {
-      "title": "hhhhhhh",
-      "cover_image": "/images/uploads/logo.png",
+      "title": "Beautiful memories of Punjab University",
+      "cover_image": "/images/uploads/4.jpg",
       "images": [
         {
-          "image": "/images/uploads/canvas.jpg",
-          "alt_text": "hhhhh"
+          "image": "/images/uploads/11.jpg"
         },
         {
-          "image": "/images/uploads/album.jpg",
-          "alt_text": "hhhhhh"
+          "image": "/images/uploads/45.jpg"
+        },
+        {
+          "image": "/images/uploads/16.jpg"
+        },
+        {
+          "image": "/images/uploads/12.jpg"
+        },
+        {
+          "image": "/images/uploads/15.jpg"
+        },
+        {
+          "image": "/images/uploads/18.jpg"
+        },
+        {
+          "image": "/images/uploads/43.jpg"
+        },
+        {
+          "image": "/images/uploads/61.jpg"
+        },
+        {
+          "image": "/images/uploads/22.jpg"
+        },
+        {
+          "image": "/images/uploads/60.jpg"
+        },
+        {
+          "image": "/images/uploads/20.jpg"
+        },
+        {
+          "image": "/images/uploads/31.jpg"
+        },
+        {
+          "image": "/images/uploads/29.jpg"
+        },
+        {
+          "image": "/images/uploads/57.jpg"
         }
       ]
     }
