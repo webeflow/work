@@ -1,3 +1,76 @@
 {
-  "testimonials": []
+  "testimonials": [
+    {
+      "rating": 5,
+      "name": "Zainab Malik",
+      "feedback": "\"Hands down the best photography studio in Lahore Cantt! Their attention to detail and luxury lighting setup is completely unmatched.\"",
+      "avatar": "/images/uploads/14.webp"
+    },
+    {
+      "rating": 5,
+      "name": "Hamza Ali",
+      "feedback": "\"Got my corporate headshots done here. Extremely professional crew, crisp image quality, and a top-tier premium studio ambiance.\"",
+      "avatar": "/images/uploads/1.jpg"
+    },
+    {
+      "rating": 5,
+      "name": "Fatima Ahmed",
+      "feedback": "\"Their color lab print quality is legendary! I ordered a massive canvas print for my lounge, and the color accuracy is absolutely flawless.\"",
+      "avatar": "/images/uploads/31.webp"
+    },
+    {
+      "rating": 5,
+      "name": "Bilal Shah",
+      "feedback": "\"Very cooperative and patient team. Handling a massive family during a high-profile wedding isn't easy, but they did it with absolute perfection.\"",
+      "avatar": "/images/uploads/61.webp"
+    },
+    {
+      "rating": 5,
+      "name": "Mahnoor Raza",
+      "feedback": "\"They captured our anniversary session beautifully. The cinematic touch they give to raw emotions is what sets them apart from everyone else.\"",
+      "avatar": "/images/uploads/15.webp"
+    },
+    {
+      "rating": 5,
+      "name": "Omer Sheikh",
+      "feedback": "\"A pure luxury experience from start to finish. The studio ambiance in Mall of Lahore is incredibly elite, and the editing style is very sophisticated.\"",
+      "avatar": "/images/uploads/34.webp"
+    },
+    {
+      "rating": 5,
+      "name": "Sana Javed",
+      "feedback": "\"Exceptional service! The sharpness and color grading of the final pictures left us speechless. Will definitely book them for all our future events.\"",
+      "avatar": "/images/uploads/81.webp"
+    },
+    {
+      "rating": 5,
+      "name": "Ali Rehman",
+      "feedback": "\"Premium service, top-of-the-line gear, and absolute dedication. They delivered the final edited album way before the committed date.\"",
+      "avatar": "/images/uploads/83.webp"
+    },
+    {
+      "rating": 5,
+      "name": "Khadija Yousaf",
+      "feedback": "\"Extremely comfortable environment for a maternity and newborn shoot. They took great care of our baby during the session. Beautiful results!\"",
+      "avatar": "/images/uploads/11.webp"
+    },
+    {
+      "rating": 5,
+      "name": "Usman Tariq",
+      "feedback": "\"If you want true high-end wedding coverage in Lahore, Al Noor is the ultimate choice. Their cinematography team is incredibly creative.\"",
+      "avatar": "/images/uploads/3.webp"
+    },
+    {
+      "rating": 5,
+      "name": "Amna Farooq",
+      "feedback": "\"They make you feel so natural and confident behind the camera. The portraits came out looking completely effortless, timeless, and elegant.\"",
+      "avatar": "/images/uploads/92.webp"
+    },
+    {
+      "rating": 5,
+      "name": "Rohan Siddiqui",
+      "feedback": "\"Great experience at their premium color lab. Quick turnaround time and top-quality matte paper. The staff is highly courteous.\"",
+      "avatar": "/images/uploads/16.webp"
+    }
+  ]
 }
