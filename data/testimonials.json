@@ -1,3 +1,10 @@
 {
-  "testimonials": []
+  "testimonials": [
+    {
+      "rating": 5,
+      "name": "fgfhgfgg",
+      "avatar": "/images/uploads/2.jpg",
+      "feedback": "erererererer"
+    }
+  ]
 }
