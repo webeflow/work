@@ -1,3 +1,18 @@
 {
-  "galleries": []
+  "galleries": [
+    {
+      "title": "hhhhhhh",
+      "cover_image": "/images/uploads/logo.png",
+      "images": [
+        {
+          "image": "/images/uploads/canvas.jpg",
+          "alt_text": "hhhhh"
+        },
+        {
+          "image": "/images/uploads/album.jpg",
+          "alt_text": "hhhhhh"
+        }
+      ]
+    }
+  ]
 }
