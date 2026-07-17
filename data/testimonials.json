@@ -1,16 +1,3 @@
 {
-  "testimonials": [
-    {
-      "rating": 5,
-      "name": "fgfhgfgg",
-      "avatar": "/images/uploads/2.jpg",
-      "feedback": "erererererer"
-    },
-    {
-      "rating": 5,
-      "name": "dfdfffdffdddfddfdfdf",
-      "avatar": "/images/uploads/14.jpg",
-      "feedback": "gfffgfgf"
-    }
-  ]
+  "testimonials": []
 }
