@@ -1,9 +1,29 @@
 {
   "services": [
     {
-      "title": "ttttghghjghjgjg",
-      "description": "ujgggjghjgjgjghj",
-      "cover_image": "/images/uploads/id.jpg"
+      "title": "Canvas Printing",
+      "description": "Transform your photos into stunning artistic canvas prints, gallery-wrapped and ready to hang.",
+      "cover_image": "/images/uploads/c48abf0a8_2canavs.jpeg"
+    },
+    {
+      "title": "Photo Printing (Studio Quality)",
+      "description": "Accurate color reproduction on archival-grade paper with professional color lab finishing.",
+      "cover_image": "/images/uploads/2d6d3b72b_6canvas.jpg"
+    },
+    {
+      "title": "PVC Card Printing",
+      "description": "ID cards, membership cards, student cards and access cards with premium PVC finish.",
+      "cover_image": "/images/uploads/8377479fb_pvccard.jpeg"
+    },
+    {
+      "title": "Album Printing & Designing",
+      "description": "Beautifully designed wedding and event albums with premium binding and lay-flat pages.",
+      "cover_image": "/images/uploads/cc6ce12e9_album.jpg"
+    },
+    {
+      "title": "Large Format Printing",
+      "description": "Posters, banners, standees and event prints in any size with vivid, crisp output.",
+      "cover_image": "/images/uploads/4a0e8114c_3canavas.jpeg"
     }
   ]
 }
