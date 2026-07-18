@@ -47,6 +47,18 @@
           "image": "/images/uploads/57.jpg"
         }
       ]
+    },
+    {
+      "title": "marrage",
+      "cover_image": "/images/uploads/2.jpg",
+      "images": [
+        {
+          "image": "/images/uploads/13.jpeg"
+        },
+        {
+          "image": "/images/uploads/21.jpg"
+        }
+      ]
     }
   ]
 }
